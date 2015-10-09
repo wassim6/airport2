@@ -18,12 +18,17 @@ public class ClientInfoService implements ClientInfoServiceLocal {
 	private EntityManager em;
     public ClientInfoService() {
        
-    	
+    }
+        public void add(ClientInfo client) {
+    		
+    		em.persist(client);
+    		
+    	}
+
     	
 
 
     	
     
 
-}
 }
