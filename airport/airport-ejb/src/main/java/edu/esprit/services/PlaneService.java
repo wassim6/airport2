@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import edu.esprit.persistance.Plane;
 
@@ -14,47 +16,39 @@ import edu.esprit.persistance.Plane;
 @LocalBean
 public class PlaneService implements PlaneServiceLocal {
 
+	@PersistenceContext
+	private EntityManager em;
+	
     /**
      * Default constructor. 
      */
     public PlaneService() {
-        // TODO Auto-generated constructor stub
     }
 
-	@Override
-	public void create(Plane plane) {
-		// TODO Auto-generated method stub
-		
+	public void add(Plane plane) {
+		em.persist(plane);
 	}
 
-	@Override
 	public void delete(Plane plane) {
-		// TODO Auto-generated method stub
-		
+		em.remove(em.merge(plane));
 	}
 
-	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
-		
+		em.remove(em.find(Plane.class, id));
 	}
 
-	@Override
 	public void update(Plane plane) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public Plane findPlaneById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Plane.class, id);
 	}
 
-	@Override
 	public List<Plane> findAllPlane() {
-		// TODO Auto-generated method stub
-		return null;
+		return em
+				.createQuery("select p from Plane p", Plane.class)
+				.getResultList();
 	}
 
 }

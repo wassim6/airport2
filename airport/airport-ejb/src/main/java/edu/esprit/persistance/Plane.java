@@ -35,6 +35,37 @@ public class Plane implements Serializable {
 	public Plane() {
 	}   
 	
+	
+	
+	public Plane(Integer idPlane, String planeName, Integer maximumSpeed,
+			Integer economicSeats, Integer businessSeats, Integer firstSeats,
+			Integer wifi, Integer plug, List<Flight> flights) {
+		IdPlane = idPlane;
+		PlaneName = planeName;
+		MaximumSpeed = maximumSpeed;
+		EconomicSeats = economicSeats;
+		BusinessSeats = businessSeats;
+		FirstSeats = firstSeats;
+		Wifi = wifi;
+		Plug = plug;
+	}
+
+
+
+	public Plane(String planeName, Integer maximumSpeed, Integer economicSeats,
+			Integer businessSeats, Integer firstSeats, Integer wifi,
+			Integer plug) {
+		PlaneName = planeName;
+		MaximumSpeed = maximumSpeed;
+		EconomicSeats = economicSeats;
+		BusinessSeats = businessSeats;
+		FirstSeats = firstSeats;
+		Wifi = wifi;
+		Plug = plug;
+	}
+
+
+
 	public Integer getIdPlane() {
 		return this.IdPlane;
 	}
