@@ -2,6 +2,10 @@ package edu.esprit.services;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import edu.esprit.persistance.ClientInfo;
 
 /**
  * Session Bean implementation class ClientInfoService
@@ -10,11 +14,16 @@ import javax.ejb.Stateless;
 @LocalBean
 public class ClientInfoService implements ClientInfoServiceLocal {
 
-    /**
-     * Default constructor. 
-     */
+	@PersistenceContext
+	private EntityManager em;
     public ClientInfoService() {
-        // TODO Auto-generated constructor stub
-    }
+       
+    	
+    	
 
+
+    	
+    
+
+}
 }
