@@ -15,4 +15,12 @@ public class ReservationService implements ReservationServiceLocal {
         // TODO Auto-generated constructor stub
     }
 
+	@Override
+	public void CancelReservation() {
+		// TODO Auto-generated method stub
+		
+		//Change the status of reservation
+		
+	}
+
 }
