@@ -22,7 +22,7 @@ public class Location implements Serializable {
 	private Integer IdLocation;
 	private String country;
 	private String city;
-	private String region;
+	private String LocationCode;
 	private Integer ZipCode;
 	private String AirportName;
 	@OneToMany( mappedBy = "ArrivalLocationId" )
@@ -31,7 +31,19 @@ public class Location implements Serializable {
 
 	public Location() {
 		
-	}   
+	} 
+	
+	public Location(String country, String city,
+			String locationCode, Integer zipCode, String airportName) {
+		
+		
+		this.country = country;
+		this.city = city;
+		this.LocationCode = locationCode;
+		ZipCode = zipCode;
+		AirportName = airportName;
+	}
+
 	public Integer getIdLocation() {
 		return this.IdLocation;
 	}
@@ -53,12 +65,12 @@ public class Location implements Serializable {
 	public void setCity(String city) {
 		this.city = city;
 	}   
-	public String getRegion() {
-		return this.region;
+	public String getLocationCode() {
+		return this.LocationCode;
 	}
 
-	public void setRegion(String region) {
-		this.region = region;
+	public void setLocationCode(String locationCode) {
+		this.LocationCode = locationCode;
 	}   
 	public Integer getZipCode() {
 		return this.ZipCode;
