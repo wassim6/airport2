@@ -86,12 +86,12 @@ public class DBPopulator {
 		flightServiceLocal.add(flight1);
 		flightServiceLocal.add(flight2);
 		
-		flight1.setFlightMiles(20);
-		flightServiceLocal.update(flight1);
+		flight1 = flightServiceLocal.findFlightById(2);
+		System.out.println(flight1.toString());
 		
-		flight2.setFlightNumber("XXXX");
-		flightServiceLocal.update(flight2);
-		
+/*		flight2 = flightServiceLocal.findFlightByFlightNumber("TUKH789");
+		System.out.println(flight2.toString());
+	*/	
 	}
 
 	

@@ -14,9 +14,9 @@ public interface FlightServiceLocal {
 	void delete(Flight flight);
 	void deleteById(Integer id);
 	void update(Flight flight);
-/*	Flight findAirlineCompanyById(Integer id);
-	Flight findAirlineCompanyByName(String name);
-	List<Flight> findAllAirlineCompanies();
+	Flight findFlightById(Integer id);
+	Flight findFlightByFlightNumber(String flightNumber);
+/*	List<Flight> findAllAirlineCompanies();
 */	
 
 }
