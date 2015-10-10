@@ -21,7 +21,7 @@ public class ClientInfoRessource {
 	
 	@POST
 	@Path("/add")
-	@Produces("application/json")
+	@Consumes("application/json")
 	public void add(ClientInfo client)
 	{
 		myejb.add(client);

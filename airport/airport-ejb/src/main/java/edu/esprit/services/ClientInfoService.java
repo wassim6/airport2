@@ -21,7 +21,7 @@ public class ClientInfoService implements ClientInfoServiceLocal {
     }
         public void add(ClientInfo client) {
     		
-    		em.persist(client);
+    		em.persist(em.merge(client));
     		
     	}
         
