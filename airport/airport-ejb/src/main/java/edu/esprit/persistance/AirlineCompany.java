@@ -17,13 +17,10 @@ import javax.persistence.*;
 public class AirlineCompany implements Serializable {
 
 	   
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer idAirlineCompany;
-	@Column(unique = true)
 	private String name;
 	private String logo;
-	@OneToMany( mappedBy = "airlineCompany" )
 	private List<Flight> flights;
 	private static final long serialVersionUID = 1L;
 
@@ -54,7 +51,8 @@ public class AirlineCompany implements Serializable {
 	}
 
 
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdAirlineCompany() {
 		return this.idAirlineCompany;
 	}
@@ -62,6 +60,7 @@ public class AirlineCompany implements Serializable {
 	public void setIdAirlineCompany(Integer IdAirlineCompany) {
 		this.idAirlineCompany = IdAirlineCompany;
 	}   
+	@Column(unique = true)
 	public String getName() {
 		return this.name;
 	}
@@ -76,6 +75,7 @@ public class AirlineCompany implements Serializable {
 	public void setLogo(String Logo) {
 		this.logo = Logo;
 	}
+	@OneToMany( mappedBy = "airlineCompany" )
 	public List<Flight> getFlights() {
 		return flights;
 	}

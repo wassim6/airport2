@@ -9,20 +9,22 @@ import javax.persistence.*;
  * Entity implementation class for Entity: ReservationStatus
  *
  */
+
 @Entity
 @Table(name="t_reservationStatus")
 
 public class ReservationStatus implements Serializable {
 
 	   
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer idReservationStatus;
 	private String reservationStatusCode;
 	private static final long serialVersionUID = 1L;
 
 	public ReservationStatus() {
 	}   
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdReservationStatus() {
 		return this.idReservationStatus;
 	}

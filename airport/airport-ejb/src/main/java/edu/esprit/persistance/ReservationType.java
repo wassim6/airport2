@@ -9,14 +9,11 @@ import javax.persistence.*;
  * Entity implementation class for Entity: ReservationType
  *
  */
-@Entity
-@Table(name="t_reservationType")
 
+@Entity
+@Table(name = "t_reservationType")
 public class ReservationType implements Serializable {
 
-	   
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idReservationType;
 	private String reservationTypeName;
 	private String description;
@@ -24,22 +21,26 @@ public class ReservationType implements Serializable {
 
 	public ReservationType() {
 
-	}   
-	
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdReservationType() {
 		return this.idReservationType;
 	}
 
 	public void setIdReservationType(Integer IdReservationType) {
 		this.idReservationType = IdReservationType;
-	}   
+	}
+
 	public String getReservationTypeName() {
 		return this.reservationTypeName;
 	}
 
 	public void setReservationTypeName(String ReservationTypeName) {
 		this.reservationTypeName = ReservationTypeName;
-	}   
+	}
+
 	public String getDescription() {
 		return this.description;
 	}
@@ -47,5 +48,5 @@ public class ReservationType implements Serializable {
 	public void setDescription(String Description) {
 		this.description = Description;
 	}
-   
+
 }

@@ -9,21 +9,22 @@ import javax.persistence.*;
  * Entity implementation class for Entity: PaymentStatus
  *
  */
+
 @Entity
 @Table(name="t_paymentStatus")
 
 public class PaymentStatus implements Serializable {
 
 	   
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer idPaymentStatus;
 	private String paymentStatusCode;
 	private static final long serialVersionUID = 1L;
 
 	public PaymentStatus() {
 	}   
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdPaymentStatus() {
 		return this.idPaymentStatus;
 	}

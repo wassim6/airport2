@@ -10,38 +10,35 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Reservation
  *
  */
+
 @Entity
 @Table(name="t_reservation")
 
 public class Reservation implements Serializable {
 
 	   
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer idReservation;
 	private Date dateReservation;
 	private String status;
 	private String travelClass;
-	@ManyToOne
-	@JoinColumn( name= "reservationStatus_fk")
+	
 	private ReservationStatus reservationStatus;
 	
 	
-	@ManyToOne
-	@JoinColumn( name= "reservationType_fk")
+	
 	private ReservationType reservationType;
-	@ManyToOne
-	@JoinColumn( name= "flight_fk")
+	
 	private Flight flight;
-	@ManyToOne
-	@JoinColumn( name= "passanger_fk")
+	
 	private Passanger passanger;
 	private static final long serialVersionUID = 1L;
 
 	public Reservation() {
 	}  
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdReservation() {
 		return this.idReservation;
 	}
@@ -71,7 +68,8 @@ public class Reservation implements Serializable {
 		this.travelClass = TravelClass;
 	}   
 	
-	
+	@ManyToOne
+	@JoinColumn( name= "passanger_fk")
 	public Passanger getPassanger() {
 		return passanger;
 	}
@@ -80,7 +78,8 @@ public class Reservation implements Serializable {
 		this.passanger = passanger;
 	}
 
-	
+	@ManyToOne
+	@JoinColumn( name= "reservationStatus_fk")
 	public ReservationStatus getReservationStatus() {
 		return reservationStatus;
 	}
@@ -90,7 +89,8 @@ public class Reservation implements Serializable {
 	}
 
 	
-	
+	@ManyToOne
+	@JoinColumn( name= "reservationType_fk")
 	public ReservationType getReservationType() {
 		return reservationType;
 	}
@@ -99,7 +99,8 @@ public class Reservation implements Serializable {
 		this.reservationType = reservationType;
 	}
 
-	
+	@ManyToOne
+	@JoinColumn( name= "flight_fk")
 	public Flight getFlight() {
 		return flight;
 	}

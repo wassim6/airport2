@@ -10,28 +10,28 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Payment
  *
  */
+
 @Entity
 @Table(name="t_payment")
 
 public class Payment implements Serializable {
 
 	   
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer idPayment;
 	private Date paymentDate;
 	private Integer paymentAmount;
 	private PaymentStatus paymentStatus;
 	private Reservation reservation;
-	@ManyToOne
-	@JoinColumn( name= "clientId_fk")
+	
 	private Client client;
 	private static final long serialVersionUID = 1L;
 
 	public Payment() {
 
 	}   
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdPayment() {
 		return this.idPayment;
 	}
@@ -69,7 +69,8 @@ public class Payment implements Serializable {
 	public void setReservation(Reservation reservation) {
 		this.reservation = reservation;
 	}
-
+	@ManyToOne
+	@JoinColumn( name= "clientId_fk")
 	public Client getClient() {
 		return client;
 	}
