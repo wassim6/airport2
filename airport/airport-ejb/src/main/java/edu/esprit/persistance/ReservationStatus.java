@@ -17,25 +17,25 @@ public class ReservationStatus implements Serializable {
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdReservationStatus;
-	private String ReservationStatusCode;
+	private Integer idReservationStatus;
+	private String reservationStatusCode;
 	private static final long serialVersionUID = 1L;
 
 	public ReservationStatus() {
 	}   
 	public Integer getIdReservationStatus() {
-		return this.IdReservationStatus;
+		return this.idReservationStatus;
 	}
 
 	public void setIdReservationStatus(Integer IdReservationStatus) {
-		this.IdReservationStatus = IdReservationStatus;
+		this.idReservationStatus = IdReservationStatus;
 	}   
 	public String getReservationStatusCode() {
-		return this.ReservationStatusCode;
+		return this.reservationStatusCode;
 	}
 
 	public void setReservationStatusCode(String ReservationStatusCode) {
-		this.ReservationStatusCode = ReservationStatusCode;
+		this.reservationStatusCode = ReservationStatusCode;
 	}
    
 }

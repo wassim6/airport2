@@ -20,15 +20,15 @@ public class Plane implements Serializable {
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdPlane;
-	private String PlaneName;
-	private Integer MaximumSpeed;
-	private Integer EconomicSeats;
-	private Integer BusinessSeats;
-	private Integer FirstSeats;
-	private Integer Wifi;
-	private Integer Plug;
-	@OneToMany( mappedBy = "PlaneId" )
+	private Integer idPlane;
+	private String planeName;
+	private Integer maximumSpeed;
+	private Integer economicSeats;
+	private Integer businessSeats;
+	private Integer firstSeats;
+	private Integer wifi;
+	private Integer plug;
+	@OneToMany( mappedBy = "plane" )
 	private List<Flight> flights;
 	private static final long serialVersionUID = 1L;
 
@@ -39,15 +39,15 @@ public class Plane implements Serializable {
 	
 	public Plane(Integer idPlane, String planeName, Integer maximumSpeed,
 			Integer economicSeats, Integer businessSeats, Integer firstSeats,
-			Integer wifi, Integer plug, List<Flight> flights) {
-		IdPlane = idPlane;
-		PlaneName = planeName;
-		MaximumSpeed = maximumSpeed;
-		EconomicSeats = economicSeats;
-		BusinessSeats = businessSeats;
-		FirstSeats = firstSeats;
-		Wifi = wifi;
-		Plug = plug;
+			Integer wifi, Integer plug) {
+		this.idPlane = idPlane;
+		this.planeName = planeName;
+		this.maximumSpeed = maximumSpeed;
+		this.economicSeats = economicSeats;
+		this.businessSeats = businessSeats;
+		this.firstSeats = firstSeats;
+		this.wifi = wifi;
+		this.plug = plug;
 	}
 
 
@@ -55,72 +55,72 @@ public class Plane implements Serializable {
 	public Plane(String planeName, Integer maximumSpeed, Integer economicSeats,
 			Integer businessSeats, Integer firstSeats, Integer wifi,
 			Integer plug) {
-		PlaneName = planeName;
-		MaximumSpeed = maximumSpeed;
-		EconomicSeats = economicSeats;
-		BusinessSeats = businessSeats;
-		FirstSeats = firstSeats;
-		Wifi = wifi;
-		Plug = plug;
+		this.planeName = planeName;
+		this.maximumSpeed = maximumSpeed;
+		this.economicSeats = economicSeats;
+		this.businessSeats = businessSeats;
+		this.firstSeats = firstSeats;
+		this.wifi = wifi;
+		this.plug = plug;
 	}
 
 
 
 	public Integer getIdPlane() {
-		return this.IdPlane;
+		return this.idPlane;
 	}
 
 	public void setIdPlane(Integer IdPlane) {
-		this.IdPlane = IdPlane;
+		this.idPlane = IdPlane;
 	}   
 	public String getPlaneName() {
-		return this.PlaneName;
+		return this.planeName;
 	}
 
 	public void setPlaneName(String PlaneName) {
-		this.PlaneName = PlaneName;
+		this.planeName = PlaneName;
 	}   
 	public Integer getMaximumSpeed() {
-		return this.MaximumSpeed;
+		return this.maximumSpeed;
 	}
 
 	public void setMaximumSpeed(Integer MaximumSpeed) {
-		this.MaximumSpeed = MaximumSpeed;
+		this.maximumSpeed = MaximumSpeed;
 	}   
 	public Integer getEconomicSeats() {
-		return this.EconomicSeats;
+		return this.economicSeats;
 	}
 
 	public void setEconomicSeats(Integer EconomicSeats) {
-		this.EconomicSeats = EconomicSeats;
+		this.economicSeats = EconomicSeats;
 	}   
 	public Integer getBusinessSeats() {
-		return this.BusinessSeats;
+		return this.businessSeats;
 	}
 
 	public void setBusinessSeats(Integer BusinessSeats) {
-		this.BusinessSeats = BusinessSeats;
+		this.businessSeats = BusinessSeats;
 	}   
 	public Integer getFirstSeats() {
-		return this.FirstSeats;
+		return this.firstSeats;
 	}
 
 	public void setFirstSeats(Integer FirstSeats) {
-		this.FirstSeats = FirstSeats;
+		this.firstSeats = FirstSeats;
 	}   
 	public Integer getWifi() {
-		return this.Wifi;
+		return this.wifi;
 	}
 
 	public void setWifi(Integer Wifi) {
-		this.Wifi = Wifi;
+		this.wifi = Wifi;
 	}   
 	public Integer getPlug() {
-		return this.Plug;
+		return this.plug;
 	}
 
 	public void setPlug(Integer Plug) {
-		this.Plug = Plug;
+		this.plug = Plug;
 	}
 
 	public List<Flight> getFlights() {

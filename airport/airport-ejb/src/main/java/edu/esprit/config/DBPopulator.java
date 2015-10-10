@@ -1,16 +1,23 @@
 package edu.esprit.config;
 
 
+import java.util.Date;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
 import edu.esprit.persistance.AirlineCompany;
+import edu.esprit.persistance.Flight;
 import edu.esprit.persistance.Location;
 import edu.esprit.persistance.Plane;
 import edu.esprit.services.AirlineCompanyServiceLocal;
+<<<<<<< HEAD
 import edu.esprit.services.ClientServiceLocal;
+=======
+import edu.esprit.services.FlightServiceLocal;
+>>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 import edu.esprit.services.LocationServiceLocal;
 import edu.esprit.services.PlaneServiceLocal;
 
@@ -28,14 +35,18 @@ public class DBPopulator {
 	private AirlineCompanyServiceLocal airlineCompanyServiceLocal;
 	
 	@EJB
+<<<<<<< HEAD
 	private ClientServiceLocal clientServiceLocal;
+=======
+	private FlightServiceLocal flightServiceLocal;
+>>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 	
 	
 	public DBPopulator() {
 	}
 	
 	@PostConstruct
-	public void createSomePlane(){
+	public void createSomeEntities(){
 		Plane plane1 = new Plane("Boeing 747", 955, 480, 20, 5, 0, 0);
 		Plane plane2 = new Plane("Airbus A380", 945, 652, 30, 10, 0, 1);
 		Plane plane3 = new Plane("Boeing 777", 950, 314, 15, 10, 1,1);
@@ -45,12 +56,47 @@ public class DBPopulator {
 		planeServiceLocal.add(plane3);
 		
 		
+<<<<<<< HEAD
 		Client client1 = new Client()
 		
 		
+=======
+		
+		Location location1 = new Location("ENH","Tunisia","Hammamet - Enfida",4030 ,"Hammamet Enfidha International Airport",1);
+		Location location2 = new Location("TUN","Tunisia","Tunis", 1080 ,"Tunis-Carthage International Airport", 1);		
+		Location location3 = new Location("ORY","France", "Paris",94396 ,"Paris Orly Airport",1);		
+
+		locationServiceLocal.add(location1);
+		locationServiceLocal.add(location2);
+		locationServiceLocal.add(location3);
+		
+		
+		
+		AirlineCompany airlineCompany1 = new AirlineCompany("Tunisair", "tunisair_logo.png");
+		AirlineCompany airlineCompany2 = new AirlineCompany("Nouvelair", "nouvelair_logo.png");
+		
+		airlineCompanyServiceLocal.add(airlineCompany1);
+		airlineCompanyServiceLocal.add(airlineCompany2);	
+		
+		Date date1 = new Date();
+		Date date2 = new Date();
+		
+		Flight flight1 = new Flight("TUKH789", location2, location3, date1, date2, 120, 2200, 0, plane1, airlineCompany1);
+		Flight flight2 = new Flight("FRTN447", location3, location2, date1, date2, 87, 1450, 1, plane2, airlineCompany2);
+		
+		flightServiceLocal.add(flight1);
+		flightServiceLocal.add(flight2);
+>>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 		
 	}
+<<<<<<< HEAD
 
+=======
+	
+	
+	
+	
+>>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 	/*
 	@PostConstruct
 	public void createSomeLocation(){
@@ -71,6 +117,11 @@ public class DBPopulator {
 		airlineCompanyServiceLocal.add(airlineCompany1);
 		airlineCompanyServiceLocal.add(airlineCompany2);
 	}
+<<<<<<< HEAD
 	
 */
+=======
+	*/
+
+>>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 }

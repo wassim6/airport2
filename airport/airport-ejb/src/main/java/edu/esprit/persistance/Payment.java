@@ -18,14 +18,14 @@ public class Payment implements Serializable {
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdPayment;
-	private Date PaymentDate;
-	private Integer PaymentAmount;
-	private PaymentStatus PaymentStatusId;
-	private Reservation ReservationId;
+	private Integer idPayment;
+	private Date paymentDate;
+	private Integer paymentAmount;
+	private PaymentStatus paymentStatus;
+	private Reservation reservation;
 	@ManyToOne
 	@JoinColumn( name= "clientId_fk")
-	private Client clientId;
+	private Client client;
 	private static final long serialVersionUID = 1L;
 
 	public Payment() {
@@ -33,49 +33,49 @@ public class Payment implements Serializable {
 	}   
 	
 	public Integer getIdPayment() {
-		return this.IdPayment;
+		return this.idPayment;
 	}
 
 	public void setIdPayment(Integer IdPayment) {
-		this.IdPayment = IdPayment;
+		this.idPayment = IdPayment;
 	}   
 	public Date getPaymentDate() {
-		return this.PaymentDate;
+		return this.paymentDate;
 	}
 
 	public void setPaymentDate(Date PaymentDate) {
-		this.PaymentDate = PaymentDate;
+		this.paymentDate = PaymentDate;
 	}   
 	public Integer getPaymentAmount() {
-		return this.PaymentAmount;
+		return this.paymentAmount;
 	}
 
 	public void setPaymentAmount(Integer PaymentAmount) {
-		this.PaymentAmount = PaymentAmount;
+		this.paymentAmount = PaymentAmount;
 	}
 
-	public PaymentStatus getPaymentStatusId() {
-		return PaymentStatusId;
+	public PaymentStatus getPaymentStatus() {
+		return this.paymentStatus;
 	}
 
-	public void setPaymentStatusId(PaymentStatus paymentStatusId) {
-		PaymentStatusId = paymentStatusId;
+	public void setPaymentStatus(PaymentStatus paymentStatus) {
+		this.paymentStatus = paymentStatus;
 	}
 
-	public Reservation getReservationId() {
-		return ReservationId;
+	public Reservation getReservation() {
+		return this.reservation;
 	}
 
-	public void setReservationId(Reservation reservationId) {
-		ReservationId = reservationId;
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
 	}
 
 	public Client getClient() {
-		return clientId;
+		return client;
 	}
 
 	public void setClient(Client client) {
-		clientId = client;
+		this.client = client;
 	}   
   
 	

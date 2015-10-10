@@ -18,21 +18,21 @@ public class Reservation implements Serializable {
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdReservation;
-	private Date DateReservation;
-	private String Status;
-	private String TravelClass;
+	private Integer idReservation;
+	private Date dateReservation;
+	private String status;
+	private String travelClass;
 	@ManyToOne
 	@JoinColumn( name= "reservationStatus_fk")
-	private ReservationStatus ReservationStatusId;
+	private ReservationStatus reservationStatus;
 	
 	
 	@ManyToOne
 	@JoinColumn( name= "reservationType_fk")
-	private ReservationType ReservationTypeId;
+	private ReservationType reservationType;
 	@ManyToOne
 	@JoinColumn( name= "flight_fk")
-	private Flight FlightId;
+	private Flight flight;
 	@ManyToOne
 	@JoinColumn( name= "passanger_fk")
 	private Passanger passanger;
@@ -43,32 +43,32 @@ public class Reservation implements Serializable {
 	
 	
 	public Integer getIdReservation() {
-		return this.IdReservation;
+		return this.idReservation;
 	}
 
 	public void setIdReservation(Integer IdReservation) {
-		this.IdReservation = IdReservation;
+		this.idReservation = IdReservation;
 	}   
 	public Date getDateReservation() {
-		return this.DateReservation;
+		return this.dateReservation;
 	}
 
 	public void setDateReservation(Date DateReservation) {
-		this.DateReservation = DateReservation;
+		this.dateReservation = DateReservation;
 	}   
 	public String getStatus() {
-		return this.Status;
+		return this.status;
 	}
 
 	public void setStatus(String Status) {
-		this.Status = Status;
+		this.status = Status;
 	}   
 	public String getTravelClass() {
-		return this.TravelClass;
+		return this.travelClass;
 	}
 
 	public void setTravelClass(String TravelClass) {
-		this.TravelClass = TravelClass;
+		this.travelClass = TravelClass;
 	}   
 	
 	
@@ -81,31 +81,31 @@ public class Reservation implements Serializable {
 	}
 
 	
-	public ReservationStatus getReservationStatusId() {
-		return ReservationStatusId;
+	public ReservationStatus getReservationStatus() {
+		return reservationStatus;
 	}
 
-	public void setReservationStatusId(ReservationStatus reservationStatusId) {
-		ReservationStatusId = reservationStatusId;
-	}
-
-	
-	
-	public ReservationType getReservationTypeId() {
-		return ReservationTypeId;
-	}
-
-	public void setReservationTypeId(ReservationType reservationTypeId) {
-		ReservationTypeId = reservationTypeId;
+	public void setReservationStatus(ReservationStatus reservationStatus) {
+		this.reservationStatus = reservationStatus;
 	}
 
 	
-	public Flight getFlightId() {
-		return FlightId;
+	
+	public ReservationType getReservationType() {
+		return reservationType;
 	}
 
-	public void setFlightId(Flight flightId) {
-		FlightId = flightId;
+	public void setReservationType(ReservationType reservationType) {
+		this.reservationType = reservationType;
+	}
+
+	
+	public Flight getFlight() {
+		return flight;
+	}
+
+	public void setFlight(Flight flight) {
+		this.flight = flight;
 	}
    
 }

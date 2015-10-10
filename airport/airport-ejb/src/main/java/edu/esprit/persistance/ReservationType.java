@@ -17,9 +17,9 @@ public class ReservationType implements Serializable {
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdReservationType;
-	private String ReservationTypeName;
-	private String Description;
+	private Integer idReservationType;
+	private String reservationTypeName;
+	private String description;
 	private static final long serialVersionUID = 1L;
 
 	public ReservationType() {
@@ -27,25 +27,25 @@ public class ReservationType implements Serializable {
 	}   
 	
 	public Integer getIdReservationType() {
-		return this.IdReservationType;
+		return this.idReservationType;
 	}
 
 	public void setIdReservationType(Integer IdReservationType) {
-		this.IdReservationType = IdReservationType;
+		this.idReservationType = IdReservationType;
 	}   
 	public String getReservationTypeName() {
-		return this.ReservationTypeName;
+		return this.reservationTypeName;
 	}
 
 	public void setReservationTypeName(String ReservationTypeName) {
-		this.ReservationTypeName = ReservationTypeName;
+		this.reservationTypeName = ReservationTypeName;
 	}   
 	public String getDescription() {
-		return this.Description;
+		return this.description;
 	}
 
 	public void setDescription(String Description) {
-		this.Description = Description;
+		this.description = Description;
 	}
    
 }

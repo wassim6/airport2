@@ -3,7 +3,7 @@ package edu.esprit.persistance;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
-import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -20,14 +20,14 @@ public class Client implements Serializable {
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdClient;
-	private String Email;
-	private String FirstName;
-	private String LastName;
-	private String Password;
-	private Integer Phone;
-	private Time CreateTime;
-	@OneToMany( mappedBy = "clientId" )
+	private Integer idClient;
+	private String email;
+	private String firstName;
+	private String lastName;
+	private String password;
+	private Integer phone;
+	private Date createTime;
+	@OneToMany( mappedBy = "client" )
 	private List<Payment> payments;
 	private static final long serialVersionUID = 1L;
 
@@ -38,53 +38,53 @@ public class Client implements Serializable {
 	
 	
 	public Integer getIdClient() {
-		return this.IdClient;
+		return this.idClient;
 	}
 
 	public void setIdClient(Integer IdClient) {
-		this.IdClient = IdClient;
+		this.idClient = IdClient;
 	}   
 	public String getEmail() {
-		return this.Email;
+		return this.email;
 	}
 
 	public void setEmail(String Email) {
-		this.Email = Email;
+		this.email = Email;
 	}   
 	public String getFirstName() {
-		return this.FirstName;
+		return this.firstName;
 	}
 
 	public void setFirstName(String FirstName) {
-		this.FirstName = FirstName;
+		this.firstName = FirstName;
 	}   
 	public String getLastName() {
-		return this.LastName;
+		return this.lastName;
 	}
 
 	public void setLastName(String LastName) {
-		this.LastName = LastName;
+		this.lastName = LastName;
 	}   
 	public String getPassword() {
-		return this.Password;
+		return this.password;
 	}
 
 	public void setPassword(String Password) {
-		this.Password = Password;
+		this.password = Password;
 	}   
 	public Integer getPhone() {
-		return this.Phone;
+		return this.phone;
 	}
 
 	public void setPhone(Integer Phone) {
-		this.Phone = Phone;
+		this.phone = Phone;
 	}   
-	public Time getCreateTime() {
-		return this.CreateTime;
+	public Date getCreateTime() {
+		return this.createTime;
 	}
 
-	public void setCreateTime(Time CreateTime) {
-		this.CreateTime = CreateTime;
+	public void setCreateTime(Date CreateTime) {
+		this.createTime = CreateTime;
 	}
 	
    

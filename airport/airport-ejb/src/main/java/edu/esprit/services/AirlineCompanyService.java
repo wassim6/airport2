@@ -55,4 +55,9 @@ public class AirlineCompanyService implements AirlineCompanyServiceLocal {
 				.getResultList();
 	}
 
+	@Override
+	public AirlineCompany findAirlineCompanyByName(String name) {
+		return em.find(AirlineCompany.class, name);
+	}
+
 }

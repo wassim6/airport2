@@ -3,6 +3,7 @@ package edu.esprit.persistance;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -19,17 +20,11 @@ public class Passanger implements Serializable {
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdPassanger;
-	private String FirstName;
-	private String LastName;
-	private Integer PassportNumber;
-	private Integer Phone;
-	private String Address;
-	private Integer Old;
-	private String Email;
-	private String State;
-	private String City;
-	private String Country;
+	private Integer idPassanger;
+	private String firstName;
+	private String lastName;
+	private Integer passportNumber;
+	private Date dateOfBirth;
 	@OneToMany( mappedBy = "passanger" )
 	private List <Reservation> reservations;
 	private static final long serialVersionUID = 1L;
@@ -38,80 +33,34 @@ public class Passanger implements Serializable {
 	}   
 	
 	public Integer getIdPassanger() {
-		return this.IdPassanger;
+		return this.idPassanger;
 	}
 
 	public void setIdPassanger(Integer IdPassanger) {
-		this.IdPassanger = IdPassanger;
+		this.idPassanger = IdPassanger;
 	}   
 	public String getFirstName() {
-		return this.FirstName;
+		return this.firstName;
 	}
 
 	public void setFirstName(String FirstName) {
-		this.FirstName = FirstName;
+		this.firstName = FirstName;
 	}   
 	public String getLastName() {
-		return this.LastName;
+		return this.lastName;
 	}
 
 	public void setLastName(String LastName) {
-		this.LastName = LastName;
+		this.lastName = LastName;
 	}   
-	public Integer getPhone() {
-		return this.Phone;
-	}
+	
 
-	public void setPhone(Integer Phone) {
-		this.Phone = Phone;
-	}   
-	public String getAddress() {
-		return this.Address;
-	}
-
-	public void setAddress(String Address) {
-		this.Address = Address;
-	}   
-	public Integer getOld() {
-		return this.Old;
-	}
-
-	public void setOld(Integer Old) {
-		this.Old = Old;
-	}   
-	public String getEmail() {
-		return this.Email;
-	}
-
-	public void setEmail(String Email) {
-		this.Email = Email;
-	}   
-	public String getState() {
-		return this.State;
-	}
-
-	public void setState(String State) {
-		this.State = State;
-	}   
-	public String getCity() {
-		return this.City;
-	}
-
-	public void setCity(String City) {
-		this.City = City;
-	}   
-	public String getCountry() {
-		return this.Country;
-	}
-
-	public void setCountry(String Country) {
-		this.Country = Country;
-	}
+	 
 	public Integer getPassportNumber() {
-		return PassportNumber;
+		return passportNumber;
 	}
 	public void setPassportNumber(Integer passportNumber) {
-		PassportNumber = passportNumber;
+		this.passportNumber = passportNumber;
 	}
 
 	public List <Reservation> getReservations() {
@@ -120,6 +69,14 @@ public class Passanger implements Serializable {
 
 	public void setReservations(List <Reservation> reservations) {
 		this.reservations = reservations;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
    
 }

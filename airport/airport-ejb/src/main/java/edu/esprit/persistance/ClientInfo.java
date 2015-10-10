@@ -19,13 +19,13 @@ public class ClientInfo implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdClientInfo;
+	private Integer idClientInfo;
 	private Integer milesParcoured;
-	private String CountriesVisited;
-	private Integer NumberTrips;
+	private String countriesVisited;
+	private Integer numberTrips;
 	@OneToOne
 	@JoinColumn( name= "clientId_fk")
-	private Client ClientId;
+	private Client clientId;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -33,11 +33,11 @@ public class ClientInfo implements Serializable {
 		
 	}   
 	public Integer getIdClientInfo() {
-		return this.IdClientInfo;
+		return this.idClientInfo;
 	}
 
 	public void setIdClientInfo(Integer IdClientInfo) {
-		this.IdClientInfo = IdClientInfo;
+		this.idClientInfo = IdClientInfo;
 	}   
 	public Integer getMilesParcoured() {
 		return this.milesParcoured;
@@ -47,24 +47,24 @@ public class ClientInfo implements Serializable {
 		this.milesParcoured = milesParcoured;
 	}   
 	public String getCountriesVisited() {
-		return this.CountriesVisited;
+		return this.countriesVisited;
 	}
 
 	public void setCountriesVisited(String CountriesVisited) {
-		this.CountriesVisited = CountriesVisited;
+		this.countriesVisited = CountriesVisited;
 	}
 	public Integer getNumberTrips() {
-		return NumberTrips;
+		return numberTrips;
 	}
 	public void setNumberTrips(Integer numberTrips) {
-		NumberTrips = numberTrips;
+		this.numberTrips = numberTrips;
 	}
 	
 	public Client getClientId() {
-		return ClientId;
+		return clientId;
 	}
 	public void setClientId(Client clientId) {
-		ClientId = clientId;
+		this.clientId = clientId;
 	}
    
 }
