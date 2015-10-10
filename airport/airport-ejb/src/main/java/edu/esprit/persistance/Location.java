@@ -11,19 +11,19 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Location
  *
  */
+
 @Entity
 @Table(name="t_location")
 
 public class Location implements Serializable {
 
 	   
-	@Id
+	
 	private String locationCode;
 	private String country;
 	private String city;
 	private Integer zipCode;
 	private String airportName;
-	@OneToMany( mappedBy = "arrivalLocation" )
 	private List<Flight> flights;
 	private Integer timeZone;
 	
@@ -70,6 +70,7 @@ public class Location implements Serializable {
 	public void setCity(String city) {
 		this.city = city;
 	}   
+	@Id
 	public String getLocationCode() {
 		return this.locationCode;
 	}
@@ -91,6 +92,7 @@ public class Location implements Serializable {
 	public void setAirportName(String AirportName) {
 		this.airportName = AirportName;
 	}
+	@OneToMany( mappedBy = "arrivalLocation" )
 	public List<Flight> getFlights() {
 		return flights;
 	}

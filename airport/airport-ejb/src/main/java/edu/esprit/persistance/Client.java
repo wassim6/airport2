@@ -7,19 +7,21 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Entity implementation class for Entity: Client
  *
  */
-@Entity
+
+@Entity()
 @Table(name="t_client")
 
 public class Client implements Serializable {
 
 	   
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer idClient;
 	private String email;
 	private String firstName;
@@ -27,16 +29,16 @@ public class Client implements Serializable {
 	private String password;
 	private Integer phone;
 	private Date createTime;
-	@OneToMany( mappedBy = "client" )
 	private List<Payment> payments;
 	private static final long serialVersionUID = 1L;
 
 	public Client() {
 		
 	}   
-	
-	
-	
+
+
+
+
 	public Client(String email, String firstName, String lastName,
 			String password, Integer phone) {
 		this.email = email;
@@ -69,7 +71,8 @@ public class Client implements Serializable {
 	
 	
 
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdClient() {
 		return this.idClient;
 	}
@@ -120,5 +123,15 @@ public class Client implements Serializable {
 		this.createTime = CreateTime;
 	}
 	
+	@OneToMany( mappedBy = "client")
+	public List<Payment> getPayments() {
+		return payments;
+	}
+
+
+
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
+	}
    
 }

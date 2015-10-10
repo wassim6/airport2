@@ -20,14 +20,15 @@ public class ClientInfoRessource {
 	
 	
 	@POST
-	@Consumes("application/json")
+	@Path("/add")
+	@Produces("application/json")
 	public void add(ClientInfo client)
 	{
 		myejb.add(client);
 	}
 	
 	@GET
-	@Path("{id}")
+	@Path("/find/{id}")
 	@Produces("application/json")
      public ClientInfo find(@PathParam("id") Integer id ) {
 		

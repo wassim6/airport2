@@ -18,8 +18,7 @@ import javax.persistence.*;
 public class Plane implements Serializable {
 
 	   
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer idPlane;
 	private String planeName;
 	private Integer maximumSpeed;
@@ -28,7 +27,6 @@ public class Plane implements Serializable {
 	private Integer firstSeats;
 	private Integer wifi;
 	private Integer plug;
-	@OneToMany( mappedBy = "plane" )
 	private List<Flight> flights;
 	private static final long serialVersionUID = 1L;
 
@@ -76,7 +74,8 @@ public class Plane implements Serializable {
 	}
 
 
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdPlane() {
 		return this.idPlane;
 	}
@@ -133,7 +132,7 @@ public class Plane implements Serializable {
 	public void setPlug(Integer Plug) {
 		this.plug = Plug;
 	}
-
+	@OneToMany( mappedBy = "plane" )
 	public List<Flight> getFlights() {
 		return flights;
 	}
