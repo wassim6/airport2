@@ -5,6 +5,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import edu.esprit.persistance.AirlineCompany;
 import edu.esprit.persistance.Flight;
 
 /**
@@ -20,12 +21,23 @@ public class FlightService implements FlightServiceLocal {
      * Default constructor. 
      */
     public FlightService() {
-        // TODO Auto-generated constructor stub
     }
 
-	@Override
 	public void add(Flight flight) {
 		em.persist(flight);
 	}
+
+	public void delete(Flight flight) {
+		em.remove(em.merge(flight));
+	}
+
+	public void deleteById(Integer id) {
+		em.remove(em.find(Flight.class, id));
+	}
+
+	public void update(Flight flight) {
+		em.merge(flight);
+	}
+	
 
 }

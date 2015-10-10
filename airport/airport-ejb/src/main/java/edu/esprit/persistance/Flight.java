@@ -60,6 +60,22 @@ public class Flight implements Serializable {
 	
 	
 	
+	@Override
+	public String toString() {
+		return "Flight [idFlight=" + idFlight + ", flightNumber="
+				+ flightNumber + ", departLocation=" + departLocation
+				+ ", arrivalLocation=" + arrivalLocation + ", departDate="
+				+ departDate + ", arrivalDate=" + arrivalDate
+				+ ", flightDuration=" + flightDuration + ", flightMiles="
+				+ flightMiles + ", numberStops=" + numberStops
+				+ ", availableEconomicSeats=" + availableEconomicSeats
+				+ ", availableBusinessSeats=" + availableBusinessSeats
+				+ ", availableFirstSeats=" + availableFirstSeats + ", plane="
+				+ plane + ", airlineCompany=" + airlineCompany + "]";
+	}
+
+
+
 	public Flight(String flightNumber, Location departLocation,
 			Location arrivalLocation, Date departDate, Date arrivalDate,
 			Integer flightDuration, Integer flightMiles, Integer numberStops,
@@ -85,8 +101,8 @@ public class Flight implements Serializable {
 
 
 	public Flight(Integer idFlight, String flightNumber,
-			Location departLocation, Location arrivalLocation, Date departTime,
-			Date arrivalTime, Integer flightDuration, Integer flightMiles,
+			Location departLocation, Location arrivalLocation, Date departDate,
+			Date arrivalDate, Integer flightDuration, Integer flightMiles,
 			Integer numberStops, Integer availableEconomicSeats,
 			Integer availableBusinessSeats, Integer availableFirstSeats,
 			Plane plane, AirlineCompany airlineCompany) {

@@ -74,6 +74,12 @@ public class DBPopulator {
 		flightServiceLocal.add(flight1);
 		flightServiceLocal.add(flight2);
 		
+		flight1.setFlightMiles(20);
+		flightServiceLocal.update(flight1);
+		
+		flight2.setFlightNumber("XXXX");
+		flightServiceLocal.update(flight2);
+		
 	}
 	
 	

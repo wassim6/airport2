@@ -66,6 +66,17 @@ public class Plane implements Serializable {
 
 
 
+	@Override
+	public String toString() {
+		return "Plane [idPlane=" + idPlane + ", planeName=" + planeName
+				+ ", maximumSpeed=" + maximumSpeed + ", economicSeats="
+				+ economicSeats + ", businessSeats=" + businessSeats
+				+ ", firstSeats=" + firstSeats + ", wifi=" + wifi + ", plug="
+				+ plug + "]";
+	}
+
+
+
 	public Integer getIdPlane() {
 		return this.idPlane;
 	}

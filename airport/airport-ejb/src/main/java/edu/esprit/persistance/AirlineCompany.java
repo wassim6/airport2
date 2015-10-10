@@ -32,6 +32,14 @@ public class AirlineCompany implements Serializable {
 	
 	
 	
+	@Override
+	public String toString() {
+		return "AirlineCompany [idAirlineCompany=" + idAirlineCompany
+				+ ", name=" + name + ", logo=" + logo + "]";
+	}
+
+
+
 	public AirlineCompany(Integer idAirlineCompany, String name, String logo) {
 		this.idAirlineCompany = idAirlineCompany;
 		this.name = name;

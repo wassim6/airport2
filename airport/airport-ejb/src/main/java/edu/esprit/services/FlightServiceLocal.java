@@ -11,10 +11,10 @@ public interface FlightServiceLocal {
 	
 	
 	void add(Flight flight);
-/*	void delete(Flight airlineCompany);
+	void delete(Flight flight);
 	void deleteById(Integer id);
-	void update(Flight airlineCompany);
-	Flight findAirlineCompanyById(Integer id);
+	void update(Flight flight);
+/*	Flight findAirlineCompanyById(Integer id);
 	Flight findAirlineCompanyByName(String name);
 	List<Flight> findAllAirlineCompanies();
 */	

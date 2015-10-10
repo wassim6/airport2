@@ -48,6 +48,14 @@ public class Location implements Serializable {
 	
 
 	   
+	@Override
+	public String toString() {
+		return "Location [locationCode=" + locationCode + ", country="
+				+ country + ", city=" + city + ", zipCode=" + zipCode
+				+ ", airportName=" + airportName + ", timeZone=" + timeZone
+				+ "]";
+	}
+
 	public String getCountry() {
 		return this.country;
 	}
