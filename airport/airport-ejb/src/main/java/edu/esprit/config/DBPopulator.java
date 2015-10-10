@@ -9,15 +9,13 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
 import edu.esprit.persistance.AirlineCompany;
+import edu.esprit.persistance.Client;
 import edu.esprit.persistance.Flight;
 import edu.esprit.persistance.Location;
 import edu.esprit.persistance.Plane;
 import edu.esprit.services.AirlineCompanyServiceLocal;
-<<<<<<< HEAD
 import edu.esprit.services.ClientServiceLocal;
-=======
 import edu.esprit.services.FlightServiceLocal;
->>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 import edu.esprit.services.LocationServiceLocal;
 import edu.esprit.services.PlaneServiceLocal;
 
@@ -35,11 +33,10 @@ public class DBPopulator {
 	private AirlineCompanyServiceLocal airlineCompanyServiceLocal;
 	
 	@EJB
-<<<<<<< HEAD
 	private ClientServiceLocal clientServiceLocal;
-=======
+	
+	@EJB
 	private FlightServiceLocal flightServiceLocal;
->>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 	
 	
 	public DBPopulator() {
@@ -56,11 +53,13 @@ public class DBPopulator {
 		planeServiceLocal.add(plane3);
 		
 		
-<<<<<<< HEAD
-		Client client1 = new Client()
+		Client client1 = new Client("rim.aifa@esprit.tn","aifa","rim","rima",111111,null);
+		Client client2 = new Client("rima.aifaa@esprit.tn","aifaa","rimaa","rima25",222222,null);
 		
 		
-=======
+		clientServiceLocal.add(client1);
+		clientServiceLocal.add(client2);
+		
 		
 		Location location1 = new Location("ENH","Tunisia","Hammamet - Enfida",4030 ,"Hammamet Enfidha International Airport",1);
 		Location location2 = new Location("TUN","Tunisia","Tunis", 1080 ,"Tunis-Carthage International Airport", 1);		
@@ -86,17 +85,13 @@ public class DBPopulator {
 		
 		flightServiceLocal.add(flight1);
 		flightServiceLocal.add(flight2);
->>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 		
 	}
-<<<<<<< HEAD
 
-=======
 	
 	
 	
 	
->>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 	/*
 	@PostConstruct
 	public void createSomeLocation(){
@@ -120,8 +115,5 @@ public class DBPopulator {
 <<<<<<< HEAD
 	
 */
-=======
-	*/
 
->>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 }
