@@ -15,5 +15,7 @@ public interface AirlineCompanyServiceLocal {
 	void update(AirlineCompany airlineCompany);
 	AirlineCompany findAirlineCompanyById(Integer id);
 	List<AirlineCompany> findAllAirlineCompanies();
+	
+	//testGit
 
 }
