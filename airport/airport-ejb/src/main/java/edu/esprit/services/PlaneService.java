@@ -38,6 +38,7 @@ public class PlaneService implements PlaneServiceLocal {
 	}
 
 	public void update(Plane plane) {
+		em.merge(plane);
 		
 	}
 

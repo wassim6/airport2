@@ -27,9 +27,25 @@ public class AirlineCompany implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public AirlineCompany() {
-		
-		
 	}   
+	
+	
+	
+	public AirlineCompany(Integer idAirlineCompany, String name, String logo) {
+		IdAirlineCompany = idAirlineCompany;
+		Name = name;
+		Logo = logo;
+	}
+
+
+
+	public AirlineCompany(String name, String logo) {
+		Name = name;
+		Logo = logo;
+	}
+
+
+
 	public Integer getIdAirlineCompany() {
 		return this.IdAirlineCompany;
 	}

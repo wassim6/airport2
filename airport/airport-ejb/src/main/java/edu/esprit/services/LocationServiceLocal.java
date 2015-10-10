@@ -8,7 +8,7 @@ import edu.esprit.persistance.Location;
 @Local
 public interface LocationServiceLocal {
 	
-    public void create(Location location);
+    public void add(Location location);
     public Location find(Integer id);
 	public void update(Location location);
 	public void delete(Integer id);

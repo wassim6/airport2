@@ -26,7 +26,7 @@ public class LocationService implements LocationServiceLocal {
    
 
 	
-	public void create(Location location) {
+	public void add(Location location) {
 		
 		em.persist(location);
 		

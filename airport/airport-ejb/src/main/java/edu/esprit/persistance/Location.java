@@ -18,39 +18,36 @@ public class Location implements Serializable {
 
 	   
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdLocation;
+	private String locationCode;
 	private String country;
 	private String city;
-	private String LocationCode;
-	private Integer ZipCode;
-	private String AirportName;
+	private Integer zipCode;
+	private String airportName;
 	@OneToMany( mappedBy = "ArrivalLocationId" )
 	private List<Flight> flights;
+	private Integer timeZone;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Location() {
 		
 	} 
 	
-	public Location(String country, String city,
-			String locationCode, Integer zipCode, String airportName) {
+	public Location(String locationCode, String country, String city,
+			 		Integer zipCode, String airportName, Integer timeZone) {
 		
 		
 		this.country = country;
 		this.city = city;
-		this.LocationCode = locationCode;
-		ZipCode = zipCode;
-		AirportName = airportName;
+		this.locationCode = locationCode;
+		this.zipCode = zipCode;
+		this.airportName = airportName;
+		this.timeZone=timeZone;
 	}
 
-	public Integer getIdLocation() {
-		return this.IdLocation;
-	}
+	
 
-	public void setIdLocation(Integer IdLocation) {
-		this.IdLocation = IdLocation;
-	}   
+	   
 	public String getCountry() {
 		return this.country;
 	}
@@ -66,31 +63,39 @@ public class Location implements Serializable {
 		this.city = city;
 	}   
 	public String getLocationCode() {
-		return this.LocationCode;
+		return this.locationCode;
 	}
 
 	public void setLocationCode(String locationCode) {
-		this.LocationCode = locationCode;
+		this.locationCode = locationCode;
 	}   
 	public Integer getZipCode() {
-		return this.ZipCode;
+		return this.zipCode;
 	}
 
 	public void setZipCode(Integer ZipCode) {
-		this.ZipCode = ZipCode;
+		this.zipCode = ZipCode;
 	}   
 	public String getAirportName() {
-		return this.AirportName;
+		return this.airportName;
 	}
 
 	public void setAirportName(String AirportName) {
-		this.AirportName = AirportName;
+		this.airportName = AirportName;
 	}
 	public List<Flight> getFlights() {
 		return flights;
 	}
 	public void setFlights(List<Flight> flights) {
 		this.flights = flights;
+	}
+
+	public Integer getTimeZone() {
+		return timeZone;
+	}
+
+	public void setTimeZone(Integer timeZone) {
+		this.timeZone = timeZone;
 	}
    
 }
