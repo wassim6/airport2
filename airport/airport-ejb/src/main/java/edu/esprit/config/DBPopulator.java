@@ -82,7 +82,6 @@ public class DBPopulator {
 		locationServiceLocal.add(location1);
 		locationServiceLocal.add(location2);
 		locationServiceLocal.add(location3);
-<<<<<<< HEAD
 		
 		
 		
@@ -92,8 +91,8 @@ public class DBPopulator {
 		airlineCompanyServiceLocal.add(airlineCompany1);
 		airlineCompanyServiceLocal.add(airlineCompany2);	
 		
-		Date date1 = new Date();
-		Date date2 = new Date();
+		Date date1 = new Date(1990, 10, 28);
+		Date date2 = new Date(1990, 10, 29);
 		
 		Flight flight1 = new Flight("TUKH789", location2, location3, date1, date2, 120, 2200, 0, plane1, airlineCompany1);
 		Flight flight2 = new Flight("FRTN447", location3, location2, date1, date2, 87, 1450, 1, plane2, airlineCompany2);
@@ -104,57 +103,12 @@ public class DBPopulator {
 		flight1 = flightServiceLocal.findFlightById(2);
 		System.out.println(flight1.toString());
 		
-/*		flight2 = flightServiceLocal.findFlightByFlightNumber("TUKH789");
-		System.out.println(flight2.toString());
-	*/	
-	}
-=======
->>>>>>> branch 'master' of https://github.com/wassim6/airport.git
+		//flight2 = flightServiceLocal.findFlightByFlightNumber("TUKH789x");
+		//System.out.println(flight2.toString());
+		
+	}	
 
-		AirlineCompany airlineCompany1 = new AirlineCompany("Tunisair",
-				"tunisair_logo.png");
-		AirlineCompany airlineCompany2 = new AirlineCompany("Nouvelair",
-				"nouvelair_logo.png");
-
-		airlineCompanyServiceLocal.add(airlineCompany1);
-		airlineCompanyServiceLocal.add(airlineCompany2);
-		Date date1 = new Date(1990, 10, 28);
-		Date date2 = new Date(1990, 10, 28);
-
-		Flight flight1 = new Flight("TUKH789", location2, location3, date1,
-				date2, 120, 2200, 0, plane1, airlineCompany1);
-		Flight flight2 = new Flight("FRTN447", location3, location2, date1,
-				date2, 87, 1450, 1, plane2, airlineCompany2);
-
-		flightServiceLocal.add(flight1);
-		flightServiceLocal.add(flight2);
-
-		flight1.setFlightMiles(20);
-		flightServiceLocal.update(flight1);
-
-		flight2.setFlightNumber("XXXX");
-		flightServiceLocal.update(flight2);
-
-	}
-
-	/*
-	 * @PostConstruct public void createSomeLocation(){ Location location1 = new
-	 * Location("ENH","Tunisia","Hammamet - Enfida",4030
-	 * ,"Hammamet Enfidha International Airport",1); Location location2 = new
-	 * Location("TUN","Tunisia","Tunis", 1080
-	 * ,"Tunis-Carthage International Airport", 1); Location location3 = new
-	 * Location("ORY","France", "Paris",94396 ,"Paris Orly Airport",1);
-	 * 
-	 * locationServiceLocal.add(location1); locationServiceLocal.add(location2);
-	 * locationServiceLocal.add(location3); }
-	 * 
-	 * @PostConstruct public void createSomeAirlineCompant(){ AirlineCompany
-	 * airlineCompany1 = new AirlineCompany("Tunisair", "tunisair_logo.png");
-	 * AirlineCompany airlineCompany2 = new AirlineCompany("Nouvelair",
-	 * "nouvelair_logo.png");
-	 * 
-	 * airlineCompanyServiceLocal.add(airlineCompany1);
-	 * airlineCompanyServiceLocal.add(airlineCompany2); } <<<<<<< HEAD
-	 */
 
 }
+
+
