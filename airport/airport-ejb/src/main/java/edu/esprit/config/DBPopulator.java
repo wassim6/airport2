@@ -53,8 +53,8 @@ public class DBPopulator {
 		planeServiceLocal.add(plane3);
 		
 		
-		Client client1 = new Client("rim.aifa@esprit.tn","aifa","rim","rima",111111,null);
-		Client client2 = new Client("rima.aifaa@esprit.tn","aifaa","rimaa","rima25",222222,null);
+		Client client1 = new Client("rim.aifa@esprit.tn","aifa","rim","rima",111111);
+		Client client2 = new Client("rima.aifaa@esprit.tn","aifaa","rimaa","rima25",222222);
 		
 		
 		clientServiceLocal.add(client1);
