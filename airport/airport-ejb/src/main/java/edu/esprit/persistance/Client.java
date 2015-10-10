@@ -33,6 +33,7 @@ public class Client implements Serializable {
 
 	public Client() {
 		
+<<<<<<< HEAD
 	}   
 	
 	
@@ -64,6 +65,22 @@ public class Client implements Serializable {
 		this.createTime = dateNow;
 	}
 
+=======
+		
+	}  
+	
+	
+	public Client(String email, String firstName, String lastName,
+			String password, Integer phone, Date createTime) {
+		super();
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.phone = phone;
+		this.createTime = createTime;
+	}
+>>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 
 
 	public Integer getIdClient() {
