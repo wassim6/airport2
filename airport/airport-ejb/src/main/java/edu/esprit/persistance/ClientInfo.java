@@ -3,6 +3,7 @@ package edu.esprit.persistance;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+
 import javax.persistence.*;
 
 /**
@@ -15,12 +16,16 @@ import javax.persistence.*;
 public class ClientInfo implements Serializable {
 
 	   
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer IdClientInfo;
 	private Integer milesParcoured;
 	private String CountriesVisited;
 	private Integer NumberTrips;
+	@OneToOne
+	@JoinColumn( name= "clientId_fk")
+	private Client ClientId;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -55,6 +60,11 @@ public class ClientInfo implements Serializable {
 		NumberTrips = numberTrips;
 	}
 	
-	
+	public Client getClientId() {
+		return ClientId;
+	}
+	public void setClientId(Client clientId) {
+		ClientId = clientId;
+	}
    
 }

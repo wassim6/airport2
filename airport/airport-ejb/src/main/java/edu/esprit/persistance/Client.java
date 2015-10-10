@@ -27,7 +27,6 @@ public class Client implements Serializable {
 	private String Password;
 	private Integer Phone;
 	private Time CreateTime;
-	private ClientInfo clientInfo;
 	@OneToMany( mappedBy = "clientId" )
 	private List<Payment> payments;
 	private static final long serialVersionUID = 1L;
@@ -85,11 +84,6 @@ public class Client implements Serializable {
 	public void setCreateTime(Time CreateTime) {
 		this.CreateTime = CreateTime;
 	}
-	public ClientInfo getClientInfo() {
-		return clientInfo;
-	}
-	public void setClientInfo(ClientInfo clientInfo) {
-		this.clientInfo = clientInfo;
-	}
+	
    
 }
