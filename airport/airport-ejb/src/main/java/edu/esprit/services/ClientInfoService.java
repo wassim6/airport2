@@ -24,7 +24,24 @@ public class ClientInfoService implements ClientInfoServiceLocal {
     		em.persist(client);
     		
     	}
+        
+        public ClientInfo find(Integer id) {
+    		
+    		return em.find(ClientInfo.class, id);
+    	}
 
+    	public void update(ClientInfo client) {
+    		
+    		em.merge(client);
+    		
+    	}
+
+    	public void delete(ClientInfo client) {
+    		
+    		em.remove(em.merge(client));
+    	}
+
+        
     	
 
 
