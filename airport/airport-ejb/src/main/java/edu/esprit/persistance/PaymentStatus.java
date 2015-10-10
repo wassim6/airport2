@@ -17,26 +17,26 @@ public class PaymentStatus implements Serializable {
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdPaymentStatus;
-	private String PaymentStatusCode;
+	private Integer idPaymentStatus;
+	private String paymentStatusCode;
 	private static final long serialVersionUID = 1L;
 
 	public PaymentStatus() {
 	}   
 	
 	public Integer getIdPaymentStatus() {
-		return this.IdPaymentStatus;
+		return this.idPaymentStatus;
 	}
 
 	public void setIdPaymentStatus(Integer IdPaymentStatus) {
-		this.IdPaymentStatus = IdPaymentStatus;
+		this.idPaymentStatus = IdPaymentStatus;
 	}   
 	public String getPaymentStatusCode() {
-		return this.PaymentStatusCode;
+		return this.paymentStatusCode;
 	}
 
 	public void setPaymentStatusCode(String PaymentStatusCode) {
-		this.PaymentStatusCode = PaymentStatusCode;
+		this.paymentStatusCode = PaymentStatusCode;
 	}
    
 }

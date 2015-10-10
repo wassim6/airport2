@@ -23,7 +23,7 @@ public class Location implements Serializable {
 	private String city;
 	private Integer zipCode;
 	private String airportName;
-	@OneToMany( mappedBy = "ArrivalLocationId" )
+	@OneToMany( mappedBy = "arrivalLocation" )
 	private List<Flight> flights;
 	private Integer timeZone;
 	

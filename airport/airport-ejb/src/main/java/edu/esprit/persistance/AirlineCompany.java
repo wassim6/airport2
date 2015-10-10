@@ -19,10 +19,11 @@ public class AirlineCompany implements Serializable {
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdAirlineCompany;
-	private String Name;
-	private String Logo;
-	@OneToMany( mappedBy = "AirlineCompanyId" )
+	private Integer idAirlineCompany;
+	@Column(unique = true)
+	private String name;
+	private String logo;
+	@OneToMany( mappedBy = "airlineCompany" )
 	private List<Flight> flights;
 	private static final long serialVersionUID = 1L;
 
@@ -32,40 +33,40 @@ public class AirlineCompany implements Serializable {
 	
 	
 	public AirlineCompany(Integer idAirlineCompany, String name, String logo) {
-		IdAirlineCompany = idAirlineCompany;
-		Name = name;
-		Logo = logo;
+		this.idAirlineCompany = idAirlineCompany;
+		this.name = name;
+		this.logo = logo;
 	}
 
 
 
 	public AirlineCompany(String name, String logo) {
-		Name = name;
-		Logo = logo;
+		this.name = name;
+		this.logo = logo;
 	}
 
 
 
 	public Integer getIdAirlineCompany() {
-		return this.IdAirlineCompany;
+		return this.idAirlineCompany;
 	}
 
 	public void setIdAirlineCompany(Integer IdAirlineCompany) {
-		this.IdAirlineCompany = IdAirlineCompany;
+		this.idAirlineCompany = IdAirlineCompany;
 	}   
 	public String getName() {
-		return this.Name;
+		return this.name;
 	}
 
 	public void setName(String Name) {
-		this.Name = Name;
+		this.name = Name;
 	}   
 	public String getLogo() {
-		return this.Logo;
+		return this.logo;
 	}
 
 	public void setLogo(String Logo) {
-		this.Logo = Logo;
+		this.logo = Logo;
 	}
 	public List<Flight> getFlights() {
 		return flights;

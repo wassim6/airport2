@@ -14,6 +14,7 @@ public interface AirlineCompanyServiceLocal {
 	void deleteById(Integer id);
 	void update(AirlineCompany airlineCompany);
 	AirlineCompany findAirlineCompanyById(Integer id);
+	AirlineCompany findAirlineCompanyByName(String name);
 	List<AirlineCompany> findAllAirlineCompanies();
 	
 	//testGit
