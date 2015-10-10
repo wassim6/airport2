@@ -34,7 +34,9 @@ public class Client implements Serializable {
 	public Client() {
 		
 		
-	}   
+	}  
+	
+	
 	public Integer getIdClient() {
 		return this.IdClient;
 	}

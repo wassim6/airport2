@@ -10,6 +10,7 @@ import edu.esprit.persistance.AirlineCompany;
 import edu.esprit.persistance.Location;
 import edu.esprit.persistance.Plane;
 import edu.esprit.services.AirlineCompanyServiceLocal;
+import edu.esprit.services.ClientServiceLocal;
 import edu.esprit.services.LocationServiceLocal;
 import edu.esprit.services.PlaneServiceLocal;
 
@@ -26,6 +27,9 @@ public class DBPopulator {
 	@EJB
 	private AirlineCompanyServiceLocal airlineCompanyServiceLocal;
 	
+	@EJB
+	private ClientServiceLocal clientServiceLocal;
+	
 	
 	public DBPopulator() {
 	}
@@ -39,8 +43,15 @@ public class DBPopulator {
 		planeServiceLocal.add(plane1);
 		planeServiceLocal.add(plane2);
 		planeServiceLocal.add(plane3);
+		
+		
+		Client client1 = new Client()
+		
+		
+		
 	}
-	
+
+	/*
 	@PostConstruct
 	public void createSomeLocation(){
 		Location location1 = new Location("ENH","Tunisia","Hammamet - Enfida",4030 ,"Hammamet Enfidha International Airport",1);
@@ -61,5 +72,5 @@ public class DBPopulator {
 		airlineCompanyServiceLocal.add(airlineCompany2);
 	}
 	
-
+*/
 }
