@@ -10,7 +10,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import edu.esprit.persistance.Client;
 import edu.esprit.persistance.ClientInfo;
 import edu.esprit.services.ClientInfoServiceLocal;
 

@@ -21,7 +21,7 @@ public class Payment implements Serializable {
 	private Integer idPayment;
 	private Date paymentDate;
 	private Integer paymentAmount;
-	private PaymentStatus paymentStatus;
+	private String paymentStatus;
 	private Reservation reservation;
 	
 	private Client client;
@@ -54,14 +54,9 @@ public class Payment implements Serializable {
 		this.paymentAmount = PaymentAmount;
 	}
 
-	public PaymentStatus getPaymentStatus() {
-		return this.paymentStatus;
-	}
-
-	public void setPaymentStatus(PaymentStatus paymentStatus) {
-		this.paymentStatus = paymentStatus;
-	}
-
+	
+	@ManyToOne
+	@JoinColumn( name= "reservationId_fk")
 	public Reservation getReservation() {
 		return this.reservation;
 	}
@@ -69,15 +64,21 @@ public class Payment implements Serializable {
 	public void setReservation(Reservation reservation) {
 		this.reservation = reservation;
 	}
+	
 	@ManyToOne
 	@JoinColumn( name= "clientId_fk")
-	
 	public Client getClient() {
 		return client;
 	}
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+	public String getPaymentStatus() {
+		return paymentStatus;
+	}
+	public void setPaymentStatus(String paymentStatus) {
+		this.paymentStatus = paymentStatus;
 	}   
   
 	

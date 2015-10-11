@@ -1,13 +1,10 @@
 package edu.esprit.config;
 
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
-import javax.ejb.Startup;
 
 import edu.esprit.persistance.AirlineCompany;
 import edu.esprit.persistance.Client;

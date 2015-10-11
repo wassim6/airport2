@@ -5,7 +5,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import edu.esprit.persistance.AirlineCompany;
 import edu.esprit.persistance.Flight;
 
 /**

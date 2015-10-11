@@ -135,5 +135,4 @@
             </plugins>
         </pluginManagement>
     </build>
-<tx:annotation-driven/>
 </project>

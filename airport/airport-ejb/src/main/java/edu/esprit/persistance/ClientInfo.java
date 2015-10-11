@@ -5,8 +5,6 @@ import java.lang.Integer;
 import java.lang.String;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Entity implementation class for Entity: ClientInfo

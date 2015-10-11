@@ -42,10 +42,5 @@ public class ClientInfoService implements ClientInfoServiceLocal {
     	}
 
         
-    	
-
-
-    	
     
-
 }

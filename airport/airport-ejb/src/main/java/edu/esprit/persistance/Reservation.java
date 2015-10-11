@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
 import java.sql.Date;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -30,7 +32,7 @@ public class Reservation implements Serializable {
 	private ReservationType reservationType;
 	
 	private Flight flight;
-	
+	private List<Payment> payments;
 	private Passanger passanger;
 	private static final long serialVersionUID = 1L;
 
@@ -107,6 +109,14 @@ public class Reservation implements Serializable {
 
 	public void setFlight(Flight flight) {
 		this.flight = flight;
+	}
+	@OneToMany( mappedBy = "reservation")
+	public List<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
 	}
    
 }

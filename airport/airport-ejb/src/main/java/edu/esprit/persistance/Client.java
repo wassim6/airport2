@@ -7,8 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Entity implementation class for Entity: Client
@@ -30,6 +28,8 @@ public class Client implements Serializable {
 	private Integer phone;
 	private Date createTime;
 	private List<Payment> payments;
+	private List<Feedback> feedbacks;
+	private List<Claim> claims;
 	private static final long serialVersionUID = 1L;
 
 	public Client() {
@@ -150,6 +150,34 @@ public class Client implements Serializable {
 
 	public void setPayments(List<Payment> payments) {
 		this.payments = payments;
+	}
+
+
+
+	@OneToMany( mappedBy = "clientId")
+	public List<Feedback> getFeedbacks() {
+		return feedbacks;
+	}
+
+
+
+
+	public void setFeedbacks(List<Feedback> feedbacks) {
+		this.feedbacks = feedbacks;
+	}
+
+
+
+	@OneToMany( mappedBy = "clientClaim")
+	public List<Claim> getClaims() {
+		return claims;
+	}
+
+
+
+
+	public void setClaims(List<Claim> claims) {
+		this.claims = claims;
 	}
    
 }
