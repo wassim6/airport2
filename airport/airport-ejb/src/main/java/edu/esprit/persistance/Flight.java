@@ -2,7 +2,7 @@ package edu.esprit.persistance;
 
 import java.io.Serializable;
 import java.lang.Integer;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.*;
 

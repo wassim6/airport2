@@ -69,9 +69,9 @@ public class Payment implements Serializable {
 	public void setReservation(Reservation reservation) {
 		this.reservation = reservation;
 	}
+	
 	@ManyToOne
 	@JoinColumn( name= "clientId_fk")
-	
 	public Client getClient() {
 		return client;
 	}

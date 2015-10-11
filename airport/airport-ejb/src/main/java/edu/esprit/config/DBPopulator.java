@@ -1,6 +1,6 @@
 package edu.esprit.config;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -11,19 +11,17 @@ import javax.ejb.Startup;
 
 import edu.esprit.persistance.AirlineCompany;
 import edu.esprit.persistance.Client;
-import edu.esprit.persistance.ClientInfo;
 import edu.esprit.persistance.Flight;
 import edu.esprit.persistance.Location;
 import edu.esprit.persistance.Plane;
 import edu.esprit.services.AirlineCompanyServiceLocal;
-import edu.esprit.services.ClientInfoServiceLocal;
 import edu.esprit.services.ClientServiceLocal;
 import edu.esprit.services.FlightServiceLocal;
 import edu.esprit.services.LocationServiceLocal;
 import edu.esprit.services.PlaneServiceLocal;
 
 @Singleton
-//@Startup
+@Startup
 public class DBPopulator {
 
 	@EJB
@@ -35,8 +33,6 @@ public class DBPopulator {
 	@EJB
 	private AirlineCompanyServiceLocal airlineCompanyServiceLocal;
 
-	@EJB
-	private ClientInfoServiceLocal clientInfoServiceLocal;
 
 	@EJB
 	private ClientServiceLocal clientServiceLocal;
@@ -56,20 +52,13 @@ public class DBPopulator {
 		planeServiceLocal.add(plane1);
 		planeServiceLocal.add(plane2);
 		planeServiceLocal.add(plane3);
-
-		Client client1 = new Client("rim.aifa@esprit.tn", "aifa", "rim",
-				"rima", 111111);
-		Client client2 = new Client("rima.aifaa@esprit.tn", "aifaa", "rimaa",
-				"rima25", 222222);
+		
+		Client client1 = new Client("rima@esprit.tn", "rim", "aifa", "loblob", "11111111");
+		Client client2 = new Client("rima2@esprit.tn", "rim2", "aifa2", "loblob2", "22222222");
 
 		clientServiceLocal.add(client1);
 		clientServiceLocal.add(client2);
-
-		ClientInfo clientInfo1 = new ClientInfo(2, "tunisie", 3, client1);
-		ClientInfo clientInfo2 = new ClientInfo(2, "france", 3, client2);
-
-		clientInfoServiceLocal.add(clientInfo1);
-		clientInfoServiceLocal.add(clientInfo2);
+		
 
 		Location location1 = new Location("ENH", "Tunisia",
 				"Hammamet - Enfida", 4030,
@@ -91,8 +80,8 @@ public class DBPopulator {
 		airlineCompanyServiceLocal.add(airlineCompany1);
 		airlineCompanyServiceLocal.add(airlineCompany2);	
 		
-		Date date1 = new Date(1990, 10, 28);
-		Date date2 = new Date(1990, 10, 29);
+		Date date1 = new Date();
+		Date date2 = new Date();
 		
 		Flight flight1 = new Flight("TUKH789", location2, location3, date1, date2, 120, 2200, 0, plane1, airlineCompany1);
 		Flight flight2 = new Flight("FRTN447", location3, location2, date1, date2, 87, 1450, 1, plane2, airlineCompany2);
@@ -100,8 +89,8 @@ public class DBPopulator {
 		flightServiceLocal.add(flight1);
 		flightServiceLocal.add(flight2);
 		
-		flight1 = flightServiceLocal.findFlightById(2);
-		System.out.println(flight1.toString());
+/*		flight1 = flightServiceLocal.findFlightById(2);
+		System.out.println(flight1.toString());*/
 		
 		//flight2 = flightServiceLocal.findFlightByFlightNumber("TUKH789x");
 		//System.out.println(flight2.toString());
