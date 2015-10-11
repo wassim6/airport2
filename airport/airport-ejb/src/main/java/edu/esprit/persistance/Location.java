@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class Location implements Serializable {
 
 	   
-	
+	private Integer locationId;
 	private String locationCode;
 	private String country;
 	private String city;
@@ -48,6 +48,17 @@ public class Location implements Serializable {
 	
 
 	   
+	public Location(Integer locationId, String locationCode, String country,
+			String city, Integer zipCode, String airportName, Integer timeZone) {
+		this.locationId = locationId;
+		this.locationCode = locationCode;
+		this.country = country;
+		this.city = city;
+		this.zipCode = zipCode;
+		this.airportName = airportName;
+		this.timeZone = timeZone;
+	}
+
 	@Override
 	public String toString() {
 		return "Location [locationCode=" + locationCode + ", country="
@@ -70,7 +81,6 @@ public class Location implements Serializable {
 	public void setCity(String city) {
 		this.city = city;
 	}   
-	@Id
 	public String getLocationCode() {
 		return this.locationCode;
 	}
@@ -106,6 +116,16 @@ public class Location implements Serializable {
 
 	public void setTimeZone(Integer timeZone) {
 		this.timeZone = timeZone;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer getLocationId() {
+		return locationId;
+	}
+
+	public void setLocationId(Integer locationId) {
+		this.locationId = locationId;
 	}
    
 }

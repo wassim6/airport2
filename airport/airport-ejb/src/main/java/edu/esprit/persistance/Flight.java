@@ -189,7 +189,7 @@ public class Flight implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "departLocationId_fk")
+	@JoinColumn(name = "departLocationId_fk", referencedColumnName = "locationId")
 	public Location getDepartLocation() {
 		return departLocation;
 	}
@@ -199,7 +199,7 @@ public class Flight implements Serializable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "arrivalLocationId_fk")
+	@JoinColumn(name = "arrivalLocationId_fk", referencedColumnName = "locationId")
 	public Location getArrivalLocation() {
 		return arrivalLocation;
 	}
