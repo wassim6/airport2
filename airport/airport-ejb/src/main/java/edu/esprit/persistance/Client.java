@@ -50,6 +50,24 @@ public class Client implements Serializable {
 		Date dateNow = new Date();
 		this.createTime = dateNow;
 	}
+	
+	
+
+
+
+	public Client(Integer idClient, String email, String firstName,
+			String lastName, String password, Integer phone, Date createTime) {
+		super();
+		this.idClient = idClient;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.phone = phone;
+		Date dateNow = new Date();
+		this.createTime = dateNow;
+	}
+
 
 
 
