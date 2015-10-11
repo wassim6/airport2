@@ -71,6 +71,7 @@ public class Payment implements Serializable {
 	}
 	@ManyToOne
 	@JoinColumn( name= "clientId_fk")
+	
 	public Client getClient() {
 		return client;
 	}

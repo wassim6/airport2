@@ -23,7 +23,7 @@ import edu.esprit.services.LocationServiceLocal;
 import edu.esprit.services.PlaneServiceLocal;
 
 @Singleton
-@Startup
+//@Startup
 public class DBPopulator {
 
 	@EJB
