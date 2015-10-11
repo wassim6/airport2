@@ -10,12 +10,10 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
 import edu.esprit.persistance.AirlineCompany;
-import edu.esprit.persistance.Client;
 import edu.esprit.persistance.Flight;
 import edu.esprit.persistance.Location;
 import edu.esprit.persistance.Plane;
 import edu.esprit.services.AirlineCompanyServiceLocal;
-import edu.esprit.services.ClientServiceLocal;
 import edu.esprit.services.FlightServiceLocal;
 import edu.esprit.services.LocationServiceLocal;
 import edu.esprit.services.PlaneServiceLocal;
@@ -34,8 +32,8 @@ public class DBPopulator {
 	private AirlineCompanyServiceLocal airlineCompanyServiceLocal;
 
 
-	@EJB
-	private ClientServiceLocal clientServiceLocal;
+	/*@EJB
+	private ClientServiceLocal clientServiceLocal;*/
 
 	@EJB
 	private FlightServiceLocal flightServiceLocal;
@@ -53,11 +51,11 @@ public class DBPopulator {
 		planeServiceLocal.add(plane2);
 		planeServiceLocal.add(plane3);
 		
-		Client client1 = new Client("rima@esprit.tn", "rim", "aifa", "loblob", "11111111");
+/*		Client client1 = new Client("rima@esprit.tn", "rim", "aifa", "loblob", "11111111");
 		Client client2 = new Client("rima2@esprit.tn", "rim2", "aifa2", "loblob2", "22222222");
 
 		clientServiceLocal.add(client1);
-		clientServiceLocal.add(client2);
+		clientServiceLocal.add(client2);*/
 		
 
 		Location location1 = new Location("ENH", "Tunisia",
