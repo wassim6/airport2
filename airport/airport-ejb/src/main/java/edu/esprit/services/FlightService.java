@@ -3,13 +3,7 @@ package edu.esprit.services;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import edu.esprit.persistance.Flight;
 
@@ -42,27 +36,6 @@ public class FlightService implements FlightServiceLocal {
 
 	public void update(Flight flight) {
 		em.merge(flight);
-	}
-
-	public Flight findFlightById(Integer id) {
-		return em.find(Flight.class, id);
-	}
-
-	public Flight findFlightByFlightNumber(String flightNumber) {
-		Flight found = null;
-		
-		String jpql="select f from Flight f where f.flightNumber=:x";
-		TypedQuery<Flight> query = em.createQuery(jpql, Flight.class);
-		query.setParameter("x", flightNumber);
-		try{
-			found  = query.getSingleResult();
-		}catch(NoResultException e){
-			Logger
-			.getLogger(getClass().getName())
-				.log(Level.WARNING, "No flight with this Flight Number");
-		}
-		
-		return found;
 	}
 	
 

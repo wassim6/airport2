@@ -75,8 +75,6 @@ public class AirlineCompany implements Serializable {
 	public void setLogo(String Logo) {
 		this.logo = Logo;
 	}
-	
-	
 	@OneToMany( mappedBy = "airlineCompany" )
 	public List<Flight> getFlights() {
 		return flights;

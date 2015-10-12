@@ -18,7 +18,7 @@ public class FlightRessource {
 	@Inject
 	FlightServiceLocal myejb;
 	
-	@GET
+/*	@GET
 	@Path("/find/{id}")
 	@Produces("application/json")
      public Flight find(@PathParam("id") Integer id ) {
@@ -26,7 +26,7 @@ public class FlightRessource {
 		return myejb.findFlightById(id);
 		
 	}
-	
+	*/
 	@POST
 	@Consumes("application/json")
 	public void addFlight(Flight flight){

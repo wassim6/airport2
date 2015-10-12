@@ -132,7 +132,6 @@ public class Plane implements Serializable {
 	public void setPlug(Integer Plug) {
 		this.plug = Plug;
 	}
-	
 	@OneToMany( mappedBy = "plane" )
 	public List<Flight> getFlights() {
 		return flights;
