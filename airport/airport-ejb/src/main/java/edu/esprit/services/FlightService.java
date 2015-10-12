@@ -11,7 +11,6 @@ import javax.persistence.TypedQuery;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import edu.esprit.persistance.AirlineCompany;
 import edu.esprit.persistance.Flight;
 
 /**
