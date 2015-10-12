@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Entity implementation class for Entity: Reservation
@@ -110,7 +111,8 @@ public class Reservation implements Serializable {
 	public void setFlight(Flight flight) {
 		this.flight = flight;
 	}
-	@OneToMany( mappedBy = "reservation")
+	@OneToMany( mappedBy = "reservation",fetch=FetchType.EAGER)
+	@XmlTransient
 	public List<Payment> getPayments() {
 		return payments;
 	}

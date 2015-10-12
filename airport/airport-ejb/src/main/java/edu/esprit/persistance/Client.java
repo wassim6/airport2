@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Entity implementation class for Entity: Client
@@ -141,7 +142,8 @@ public class Client implements Serializable {
 		this.createTime = CreateTime;
 	}
 	
-	@OneToMany( mappedBy = "client")
+	@OneToMany( mappedBy = "client",fetch = FetchType.EAGER)
+	@XmlTransient
 	public List<Payment> getPayments() {
 		return payments;
 	}
@@ -154,7 +156,8 @@ public class Client implements Serializable {
 
 
 
-	@OneToMany( mappedBy = "clientId")
+	@OneToMany( mappedBy = "clientId",fetch = FetchType.EAGER)
+	@XmlTransient
 	public List<Feedback> getFeedbacks() {
 		return feedbacks;
 	}
@@ -168,12 +171,13 @@ public class Client implements Serializable {
 
 
 
-	@OneToMany( mappedBy = "clientClaim")
+	@OneToMany( mappedBy = "clientClaim",fetch = FetchType.EAGER)
+	@XmlTransient
 	public List<Claim> getClaims() {
 		return claims;
 	}
 
-
+	
 
 
 	public void setClaims(List<Claim> claims) {
