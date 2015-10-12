@@ -40,7 +40,7 @@ public class ClientInfoRessource {
 	
 	@PUT
     @Path("/update")
-	@Produces("application/json")
+	@Consumes("application/json")
     public void update(ClientInfo client)
 	{
 			 myejb.update(client);

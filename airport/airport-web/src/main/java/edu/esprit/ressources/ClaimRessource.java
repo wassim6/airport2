@@ -39,7 +39,7 @@ public class ClaimRessource {
 	
 	@PUT
     @Path("/update")
-	@Produces("application/json")
+	@Consumes("application/json")
     public void update(Claim claim)
 	{
 			 myejb.update(claim);
