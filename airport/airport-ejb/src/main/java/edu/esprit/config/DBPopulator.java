@@ -11,11 +11,9 @@ import javax.ejb.Startup;
 
 import edu.esprit.persistance.AirlineCompany;
 import edu.esprit.persistance.Flight;
-import edu.esprit.persistance.Location;
 import edu.esprit.persistance.Plane;
 import edu.esprit.services.AirlineCompanyServiceLocal;
 import edu.esprit.services.FlightServiceLocal;
-import edu.esprit.services.LocationServiceLocal;
 import edu.esprit.services.PlaneServiceLocal;
 
 @Singleton
@@ -25,8 +23,6 @@ public class DBPopulator {
 	@EJB
 	private PlaneServiceLocal planeServiceLocal;
 
-	@EJB
-	private LocationServiceLocal locationServiceLocal;
 
 	@EJB
 	private AirlineCompanyServiceLocal airlineCompanyServiceLocal;
@@ -58,17 +54,13 @@ public class DBPopulator {
 		clientServiceLocal.add(client2);*/
 		
 
-		Location location1 = new Location("ENH", "Tunisia",
+/*		Location location1 = new Location("ENH", "Tunisia",
 				"Hammamet - Enfida", 4030,
 				"Hammamet Enfidha International Airport", 1);
 		Location location2 = new Location("TUN", "Tunisia", "Tunis", 1080,
 				"Tunis-Carthage International Airport", 1);
 		Location location3 = new Location("ORY", "France", "Paris", 94396,
-				"Paris Orly Airport", 1);
-
-		locationServiceLocal.add(location1);
-		locationServiceLocal.add(location2);
-		locationServiceLocal.add(location3);
+				"Paris Orly Airport", 1);*/
 		
 		
 		
@@ -81,11 +73,17 @@ public class DBPopulator {
 		Date date1 = new Date();
 		Date date2 = new Date();
 		
-		Flight flight1 = new Flight("TUKH789", location2, location3, date1, date2, 120, 2200, 0, plane1, airlineCompany1);
+		/*Flight flight1 = new Flight("TUKH789", location2, location3, date1, date2, 120, 2200, 0, plane1, airlineCompany1);
 		Flight flight2 = new Flight("FRTN447", location3, location2, date1, date2, 87, 1450, 1, plane2, airlineCompany2);
 		
 		flightServiceLocal.add(flight1);
-		flightServiceLocal.add(flight2);
+		flightServiceLocal.add(flight2);*/
+		
+		
+		//Flight flight1 = new Flight("TUKH789", "Tunisia, Tunis, Tunis-Carthage International Airport", date1, date2, 120, 2200, 0, plane1, airlineCompany1);
+		
+		//flightServiceLocal.add(flight1);
+		
 		
 /*		flight1 = flightServiceLocal.findFlightById(2);
 		System.out.println(flight1.toString());*/

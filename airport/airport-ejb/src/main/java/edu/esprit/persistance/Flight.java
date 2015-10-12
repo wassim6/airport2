@@ -16,10 +16,6 @@ public class Flight implements Serializable {
 
 	private Integer idFlight;
 	private String flightNumber;
-
-	private Location departLocation;
-
-	private Location arrivalLocation;
 	private Date departDate;
 	private Date arrivalDate;
 	private Integer flightDuration;
@@ -37,11 +33,12 @@ public class Flight implements Serializable {
 	public Flight() {
 	}
 
+
 	@Override
 	public String toString() {
 		return "Flight [idFlight=" + idFlight + ", flightNumber="
-				+ flightNumber + ", departLocation=" + departLocation
-				+ ", arrivalLocation=" + arrivalLocation + ", departDate="
+				+ flightNumber 
+				+ ", departDate="
 				+ departDate + ", arrivalDate=" + arrivalDate
 				+ ", flightDuration=" + flightDuration + ", flightMiles="
 				+ flightMiles + ", numberStops=" + numberStops
@@ -50,15 +47,13 @@ public class Flight implements Serializable {
 				+ ", availableFirstSeats=" + availableFirstSeats + ", plane="
 				+ plane + ", airlineCompany=" + airlineCompany + "]";
 	}
-
-	public Flight(String flightNumber, Location departLocation,
-			Location arrivalLocation, Date departDate, Date arrivalDate,
+	
+	public Flight(String flightNumber,
+			 Date departDate, Date arrivalDate,
 			Integer flightDuration, Integer flightMiles, Integer numberStops,
 			Plane plane, AirlineCompany airlineCompany) {
 
 		this.flightNumber = flightNumber;
-		this.departLocation = departLocation;
-		this.arrivalLocation = arrivalLocation;
 		this.departDate = departDate;
 		this.arrivalDate = arrivalDate;
 		this.flightDuration = flightDuration;
@@ -73,15 +68,13 @@ public class Flight implements Serializable {
 	}
 
 	public Flight(Integer idFlight, String flightNumber,
-			Location departLocation, Location arrivalLocation, Date departDate,
+			 Date departDate,
 			Date arrivalDate, Integer flightDuration, Integer flightMiles,
 			Integer numberStops, Integer availableEconomicSeats,
 			Integer availableBusinessSeats, Integer availableFirstSeats,
 			Plane plane, AirlineCompany airlineCompany) {
 		this.idFlight = idFlight;
 		this.flightNumber = flightNumber;
-		this.departLocation = departLocation;
-		this.arrivalLocation = arrivalLocation;
 		this.departDate = departDate;
 		this.arrivalDate = arrivalDate;
 		this.flightDuration = flightDuration;
@@ -188,17 +181,9 @@ public class Flight implements Serializable {
 		this.airlineCompany = airlineCompany;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "departLocationId_fk", referencedColumnName = "locationId")
-	public Location getDepartLocation() {
-		return departLocation;
-	}
+	
 
-	public void setDepartLocation(Location departLocation) {
-		this.departLocation = departLocation;
-	}
-
-	@ManyToOne
+/*	@ManyToOne
 	@JoinColumn(name = "arrivalLocationId_fk", referencedColumnName = "locationId")
 	public Location getArrivalLocation() {
 		return arrivalLocation;
@@ -206,7 +191,7 @@ public class Flight implements Serializable {
 
 	public void setArrivalLocation(Location arrivalLocation) {
 		this.arrivalLocation = arrivalLocation;
-	}
+	}*/
 
 	@ManyToOne
 	@JoinColumn(name = "planeId_fk")
