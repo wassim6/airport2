@@ -18,8 +18,6 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name="t_client")
 
 public class Client implements Serializable {
-
-	   
 	
 	private Integer idClient;
 	private String email;
