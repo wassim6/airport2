@@ -1,5 +1,7 @@
 package edu.esprit.services;
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import edu.esprit.persistance.Feedback;
@@ -13,6 +15,8 @@ public interface FeedbackServiceLocal {
 	public void update(Feedback feedback);
 
 	public void delete(Feedback feedback);
+	public List<Feedback> findAll(Integer id);
+	
 
 
 }

@@ -1,5 +1,7 @@
 package edu.esprit.ressources;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -50,6 +52,16 @@ public class FeedbackRessource {
 	public void delete(Feedback feedback) {
 
 		 myejb.delete(feedback);
+		 
 
 }
+	
+	@GET
+	@Path("/findAll/{id}")
+	@Produces("application/json")
+	public List<Feedback> getAll(@PathParam("id") Integer id) {
+		
+		return myejb.findAll(id);
+		
+	}
 }

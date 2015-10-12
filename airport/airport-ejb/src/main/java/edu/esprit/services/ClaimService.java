@@ -1,9 +1,12 @@
 package edu.esprit.services;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import edu.esprit.persistance.Claim;
 
@@ -41,6 +44,16 @@ public class ClaimService implements ClaimServiceLocal {
 	public void delete(Claim claim) {
 		
 		em.remove(em.merge(claim));
+	}
+	
+   public List<Claim> findAll(Integer id) {
+		
+		List<Claim> claims = null;
+		String jpql = "select c from Claim c where c.clientId.idClient=:x";
+		TypedQuery<Claim> query = em.createQuery(jpql,Claim.class);
+		query.setParameter("x", id);
+		claims = query.getResultList();
+		return claims;
 	}
 
 }

@@ -1,9 +1,12 @@
 package edu.esprit.services;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import edu.esprit.persistance.Feedback;
 
@@ -40,6 +43,17 @@ public class FeedbackService implements FeedbackServiceLocal {
 	public void delete(Feedback feedback) {
 		
 		em.remove(em.merge(feedback));
+	}
+	
+	
+    public List<Feedback> findAll(Integer id) {
+		
+		List<Feedback> feedbacks = null;
+		String jpql = "select f from Feedback f where f.clientId.idClient=:x";
+		TypedQuery<Feedback> query = em.createQuery(jpql,Feedback.class);
+		query.setParameter("x", id);
+		feedbacks = query.getResultList();
+		return feedbacks;
 	}
 
 }

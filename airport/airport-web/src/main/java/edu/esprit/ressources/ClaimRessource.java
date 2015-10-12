@@ -1,5 +1,7 @@
 package edu.esprit.ressources;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -48,9 +50,18 @@ public class ClaimRessource {
 	@DELETE
 	@Path("/delete")
 	@Consumes("application/json")
-	public void delete(Claim claim) {
+	public void delete(Claim claim)
+	{
 
 		 myejb.delete(claim);
 
-}
+	}
+	@GET
+	@Path("/findAll/{id}")
+	@Produces("application/json")
+	public List<Claim> getAll(@PathParam("id") Integer id) {
+		
+		return myejb.findAll(id);
+		
+	}
 }
