@@ -20,7 +20,7 @@ import edu.esprit.services.GwMessage;
 import edu.esprit.services.PlaneServiceLocal;
 
 @Singleton
-//@Startup
+@Startup
 public class DBPopulator {
 
 	@EJB
@@ -103,16 +103,16 @@ public class DBPopulator {
 		gwMessage = new GwMessage();
 		gwMessage.sendEmail("wassim.boussetta@esprit.tn", "falloussaf@gmail.com", "test", "ttttttttttest");
 		
-		System.out.println(gwMessage.toString());
-		System.out.println("ccccccccccccc");
+		//System.out.println(gwMessage.toString());
+		//System.out.println("ccccccccccccc");
 		
 
-		flight1.setFlightMiles(20);
+/*		flight1.setFlightMiles(20);
 		flightServiceLocal.update(flight1);
 
 		flight2.setFlightNumber("XXXX");
 		flightServiceLocal.update(flight2);
-		
+*/		
 
 
 	}
