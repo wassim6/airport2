@@ -44,5 +44,8 @@ public class ClientService implements ClientServiceLocal {
 		
 		em.remove(em.merge(client));
 	}
+	
+	
+	
 
 }
