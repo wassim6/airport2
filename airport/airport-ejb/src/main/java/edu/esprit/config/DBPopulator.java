@@ -16,6 +16,7 @@ import edu.esprit.services.AirlineCompanyServiceLocal;
 import edu.esprit.services.ClientInfoServiceLocal;
 import edu.esprit.services.ClientServiceLocal;
 import edu.esprit.services.FlightServiceLocal;
+import edu.esprit.services.GwMessage;
 import edu.esprit.services.PlaneServiceLocal;
 
 @Singleton
@@ -37,7 +38,11 @@ public class DBPopulator {
 	@EJB
 	private FlightServiceLocal flightServiceLocal;
 
+	@EJB
+	private GwMessage gwMessage;
+	
 	public DBPopulator() {
+		
 	}
 
 	@PostConstruct
@@ -93,12 +98,22 @@ public class DBPopulator {
 
 		flightServiceLocal.add(flight1);
 		flightServiceLocal.add(flight2);
+		
+		
+		gwMessage = new GwMessage();
+		gwMessage.sendEmail("wassim.boussetta@esprit.tn", "falloussaf@gmail.com", "test", "ttttttttttest");
+		
+		System.out.println(gwMessage.toString());
+		System.out.println("ccccccccccccc");
+		
 
 		flight1.setFlightMiles(20);
 		flightServiceLocal.update(flight1);
 
 		flight2.setFlightNumber("XXXX");
 		flightServiceLocal.update(flight2);
+		
+
 
 	}
 

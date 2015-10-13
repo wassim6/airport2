@@ -10,6 +10,7 @@ import javax.ws.rs.Produces;
 
 import edu.esprit.persistance.Flight;
 import edu.esprit.services.FlightServiceLocal;
+import edu.esprit.services.GwMessage;
 
 
 @Path("/flight")
@@ -31,5 +32,9 @@ public class FlightRessource {
 	@Consumes("application/json")
 	public void addFlight(Flight flight){
 		myejb.add(flight);
+		
+		//GwMessage gwMessage = new GwMessage();
+		//gwMessage.
+		
 	}
 }
