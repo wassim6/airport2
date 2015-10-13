@@ -1,47 +1,5 @@
 package edu.esprit.services;
 
-<<<<<<< HEAD
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
-import edu.esprit.persistance.Feedback;
-
-/**
- * Session Bean implementation class FeedbackService
- */
-@Stateless
-@LocalBean
-public class FeedbackService implements FeedbackServiceLocal {
-
-	@PersistenceContext
-	private EntityManager em;
-    public FeedbackService() {
-        // TODO Auto-generated constructor stub
-    }
-    
- public void add(Feedback feedback) {
-		
-		em.persist(em.merge(feedback));
-		
-	}
-    
-    public Feedback find(Integer id) {
-		
-		return em.find(Feedback.class, id);
-	}
-
-	public void update(Feedback feedback) {
-		
-		em.merge(feedback);
-		
-	}
-
-	public void delete(Feedback feedback) {
-		
-		em.remove(em.merge(feedback));
-=======
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -96,7 +54,6 @@ public class FeedbackService implements FeedbackServiceLocal {
 		query.setParameter("x", id);
 		feedbacks = query.getResultList();
 		return feedbacks;
->>>>>>> branch 'master' of https://github.com/wassim6/airport.git
 	}
 
 }
