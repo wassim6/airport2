@@ -26,11 +26,7 @@ public class Reservation implements Serializable {
 	private String status;
 	private String travelClass;
 	
-	private ReservationStatus reservationStatus;
 	
-	
-	
-	private ReservationType reservationType;
 	
 	private Flight flight;
 	private List<Payment> payments;
@@ -81,26 +77,7 @@ public class Reservation implements Serializable {
 		this.passanger = passanger;
 	}
 
-	@ManyToOne
-	@JoinColumn( name= "reservationStatus_fk")
-	public ReservationStatus getReservationStatus() {
-		return reservationStatus;
-	}
-
-	public void setReservationStatus(ReservationStatus reservationStatus) {
-		this.reservationStatus = reservationStatus;
-	}
-
 	
-	@ManyToOne
-	@JoinColumn( name= "reservationType_fk")
-	public ReservationType getReservationType() {
-		return reservationType;
-	}
-
-	public void setReservationType(ReservationType reservationType) {
-		this.reservationType = reservationType;
-	}
 
 	@ManyToOne
 	@JoinColumn( name= "flight_fk")
