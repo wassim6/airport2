@@ -23,18 +23,30 @@ public class FlightRessource {
 	@Path("/find/{id}")
 	@Produces("application/json")
      public Flight find(@PathParam("id") Integer id ) {
-		
-		return myejb.;
-		
+		return myejb.findFlightById(id);
 	}
 	
-	@POST
+	@GET
+	@Path("/findByNumber/{number}")
+	@Produces("application/json")
+     public Flight find(@PathParam("number") String number ) {
+		return myejb.findFlightByNumber(number);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*	@POST
 	@Consumes("application/json")
 	public void addFlight(Flight flight){
 		myejb.add(flight);
-		
 		//GwMessage gwMessage = new GwMessage();
 		//gwMessage.
 		
-	}
+	}*/
 }

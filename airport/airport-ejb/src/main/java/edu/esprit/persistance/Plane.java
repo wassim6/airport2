@@ -7,6 +7,7 @@ import java.lang.String;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Entity implementation class for Entity: Plane
@@ -132,7 +133,9 @@ public class Plane implements Serializable {
 	public void setPlug(Integer Plug) {
 		this.plug = Plug;
 	}
-	@OneToMany( mappedBy = "plane" )
+	
+	@XmlTransient
+	@OneToMany( mappedBy = "plane")
 	public List<Flight> getFlights() {
 		return flights;
 	}

@@ -100,8 +100,10 @@ public class DBPopulator {
 		flightServiceLocal.add(flight2);
 		
 		
-		gwMessage = new GwMessage();
-		gwMessage.sendEmail("wassim.boussetta@esprit.tn", "falloussaf@gmail.com", "test", "ttttttttttest");
+//		System.out.println(flightServiceLocal.findFlightByNumber("TUKH789"));
+		
+		//gwMessage = new GwMessage();
+		//gwMessage.sendEmail("wassim.boussetta@esprit.tn", "falloussaf@gmail.com", "test", "ttttttttttest");
 		
 		//System.out.println(gwMessage.toString());
 		//System.out.println("ccccccccccccc");
