@@ -1,6 +1,7 @@
 package edu.esprit.services;
 
-import java.util.Date;
+
+import java.sql.Date;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -34,13 +35,12 @@ public class DealService implements DealServiceLocal {
 	
 	}
 
-	@Override
-	public List<Deal> findDealByDate(Date startDeal) {
+	public List<Deal> findDealByDate(Date Deal) {
 				
 				List<Deal> Deals = null;
-				String jpql = " select a from deal a where a.date=to_char(StartDate,jj) between date-7 and date+7=:x  ";
+				String jpql = " select a from Deal a where :deal BETWEEN a.startDeal AND a.endDeal  ";
 				TypedQuery<Deal> query = em.createQuery(jpql,Deal.class);
-				query.setParameter("x",startDeal);
+				query.setParameter("deal",Deal);
 				Deals = query.getResultList();
 				return Deals;
 			}

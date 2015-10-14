@@ -1,6 +1,6 @@
 package edu.esprit.ressources;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -10,9 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import edu.esprit.persistance.Deal;
-import edu.esprit.persistance.Feedback;
 import edu.esprit.services.DealServiceLocal;
-import edu.esprit.services.FeedbackServiceLocal;
 
 
 
@@ -36,13 +34,13 @@ public class DealRessource {
 
 	}
 	
-	//@GET
-	//@Path("/find/{startDeal}")
-	//@Produces("application/json")
-	//public Deal find(@PathParam("StartDeal") Date startDeal) {
+	@GET
+	@Path("/find/{Deal}")
+	@Produces("application/json")
+	public List<Deal> find(@PathParam("Deal") Date Deal) {
 
-	//	return myejb.findDealByDate(startDeal);
+		return myejb.findDealByDate(Deal);
 
 	}
 	
-
+}

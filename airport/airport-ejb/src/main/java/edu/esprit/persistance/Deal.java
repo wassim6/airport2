@@ -3,7 +3,7 @@ package edu.esprit.persistance;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.*;
 
@@ -18,9 +18,9 @@ public class Deal implements Serializable {
 	   
 
 	private Integer idDeal;
-	private Date StartDeal;
+	private Date startDeal;
 	private Date endDeal;
-	private String Description;
+	private String description;
 	private Flight  idFlight;
 	private static final long serialVersionUID = 1L;
 
@@ -32,8 +32,8 @@ public class Deal implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Deal [idDeal=" + idDeal + ", StartDeal=" + StartDeal
-				+ ", endDeal=" + endDeal + ", Description=" + Description + "]";
+		return "Deal [idDeal=" + idDeal + ", StartDeal=" + startDeal
+				+ ", endDeal=" + endDeal + ", Description=" + description + "]";
 	}
 
 
@@ -47,11 +47,11 @@ public class Deal implements Serializable {
 		this.idDeal = idDeal;
 	}   
 	public Date getStartDeal() {
-		return this.StartDeal;
+		return this.startDeal;
 	}
 
 	public void setStartDeal(Date StartDeal) {
-		this.StartDeal = StartDeal;
+		this.startDeal = StartDeal;
 	}   
 	public Date getEndDeal() {
 		return this.endDeal;
@@ -61,11 +61,11 @@ public class Deal implements Serializable {
 		this.endDeal = endDeal;
 	}   
 	public String getDescription() {
-		return this.Description;
+		return this.description;
 	}
 
 	public void setDescription(String Description) {
-		this.Description = Description;
+		this.description = Description;
 	}
 
 
