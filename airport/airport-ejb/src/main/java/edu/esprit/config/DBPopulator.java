@@ -1,6 +1,10 @@
 package edu.esprit.config;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -11,6 +15,7 @@ import edu.esprit.persistance.AirlineCompany;
 import edu.esprit.persistance.Client;
 import edu.esprit.persistance.ClientInfo;
 import edu.esprit.persistance.Flight;
+import edu.esprit.persistance.Location;
 import edu.esprit.persistance.Plane;
 import edu.esprit.services.AirlineCompanyServiceLocal;
 import edu.esprit.services.ClientInfoServiceLocal;
@@ -72,13 +77,13 @@ public class DBPopulator {
 		clientInfoServiceLocal.add(clientInfo2);
 */
 		
-/*		Location location1 = new Location("ENH", "Tunisia",
+		Location location1 = new Location("ENH", "Tunisia",
 				"Hammamet - Enfida", 4030,
 				"Hammamet Enfidha International Airport", 1);
 		Location location2 = new Location("TUN", "Tunisia", "Tunis", 1080,
 				"Tunis-Carthage International Airport", 1);
 		Location location3 = new Location("ORY", "France", "Paris", 94396,
-				"Paris Orly Airport", 1);*/
+				"Paris Orly Airport", 1);
 
 
 		AirlineCompany airlineCompany1 = new AirlineCompany("Tunisair",
@@ -88,19 +93,37 @@ public class DBPopulator {
 
 		airlineCompanyServiceLocal.add(airlineCompany1);
 		airlineCompanyServiceLocal.add(airlineCompany2);
-		Date date1 = new Date(1444838400);
-		Date date2 = new Date(2015, 10, 28);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+		Date date1 = new Date(1444829324);
+		Date date2 = new Date(1449838400);
+		try {
+			date1=sdf.parse("21/12/2014 18:00");
+			date2=sdf.parse("21/12/2014 20:00");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-		Flight flight1 = new Flight("TUKH789", "Tunisie, Tunis, Tunis-Carthage International Airport", "France, Paris, Paris Orly Airport", date1,
+
+		Flight flight1 = new Flight("TUKH789", location1, location2, date1,
 				date2, 120, 2200, 0,300, plane1, airlineCompany1);
-		Flight flight2 = new Flight("FRTN447", "France, Paris, Paris Orly Airport", "Tunisie, Tunis, Tunis-Carthage International Airport", date1,
+		Flight flight2 = new Flight("FRTN447", location2, location1, date1,
 				date2, 87, 1450, 1,320, plane2, airlineCompany2);
 
 		flightServiceLocal.add(flight1);
 		flightServiceLocal.add(flight2);
 		
 		
-//		System.out.println(flightServiceLocal.findFlightByNumber("TUKH789"));
+		List<Flight> flights =null;
+		flights=flightServiceLocal.findFlightsOneWayByLocationAndDate(location1, location2, date1);
+		
+		for(Flight f : flights){
+			System.out.println(f.toString());
+		}
+//		System.out.println(flights.toString());
+
+		//System.out.println(flightServiceLocal.findFlightByNumber("TUKH789"));
 		
 		//gwMessage = new GwMessage();
 		//gwMessage.sendEmail("wassim.boussetta@esprit.tn", "falloussaf@gmail.com", "test", "ttttttttttest");

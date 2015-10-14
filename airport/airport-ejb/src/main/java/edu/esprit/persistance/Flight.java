@@ -16,8 +16,8 @@ public class Flight implements Serializable {
 
 	private Integer idFlight;
 	private String flightNumber;
-	private String departLocation;
-	private String arrivalLocation;
+	private Location departLocation;
+	private Location arrivalLocation;
 	private Date departDate;
 	private Date arrivalDate;
 	private Integer flightDuration;
@@ -51,8 +51,8 @@ public class Flight implements Serializable {
 				+ plane + ", airlineCompany=" + airlineCompany + "]";
 	}
 
-	public Flight(String flightNumber, String departLocation,
-			String arrivalLocation, Date departDate, Date arrivalDate,
+	public Flight(String flightNumber, Location departLocation,
+			Location arrivalLocation, Date departDate, Date arrivalDate,
 			Integer flightDuration, Integer flightMiles, Integer numberStops,
 			Integer price, Plane plane, AirlineCompany airlineCompany) {
 
@@ -76,7 +76,7 @@ public class Flight implements Serializable {
 	}
 
 	public Flight(Integer idFlight, String flightNumber,
-			String departLocation, String arrivalLocation, Date departDate,
+			Location departLocation, Location arrivalLocation, Date departDate,
 			Date arrivalDate, Integer flightDuration, Integer flightMiles,
 			Integer numberStops, Integer availableEconomicSeats,
 			Integer availableBusinessSeats, Integer availableFirstSeats,
@@ -196,21 +196,7 @@ public class Flight implements Serializable {
 		this.airlineCompany = airlineCompany;
 	}
 
-	public String getDepartLocation() {
-		return departLocation;
-	}
-
-	public void setDepartLocation(String departLocation) {
-		this.departLocation = departLocation;
-	}
-
-	public String getArrivalLocation() {
-		return arrivalLocation;
-	}
-
-	public void setArrivalLocation(String arrivalLocation) {
-		this.arrivalLocation = arrivalLocation;
-	}
+	
 
 	@ManyToOne
 	@JoinColumn(name = "planeId_fk")
@@ -237,5 +223,27 @@ public class Flight implements Serializable {
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
+
+	@ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="locationDepart_fk")
+	public Location getDepartLocation() {
+		return departLocation;
+	}
+
+	public void setDepartLocation(Location departLocation) {
+		this.departLocation = departLocation;
+	}
+
+	@ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="locationArrival_fk")
+	public Location getArrivalLocation() {
+		return arrivalLocation;
+	}
+
+	public void setArrivalLocation(Location arrivalLocation) {
+		this.arrivalLocation = arrivalLocation;
+	}
+	
+	
 
 }

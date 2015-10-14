@@ -1,5 +1,8 @@
 package edu.esprit.services;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,6 +14,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import edu.esprit.persistance.Flight;
+import edu.esprit.persistance.Location;
 
 /**
  * Session Bean implementation class FlightService
@@ -59,6 +63,48 @@ public class FlightService implements FlightServiceLocal {
 			.log(Level.INFO, "no flight with flightNumber="+number);
 		}
 		return found;
+	}
+
+	@Override
+	public List<Flight> findFlightsOneWayByLocationAndDate(
+			Location locationDepart, Location locationArrival, Date dateDepart) {
+		
+		List<Flight> flights = null;
+		String jpql = "select f from Flight f where "
+				+ "f.departLocation=:locationDepart And f.arrivalLocation=:locationArrival AND f.departDate=:dateDepart";
+		TypedQuery<Flight> query = em.createQuery(jpql, Flight.class);
+		query.setParameter("locationDepart", locationDepart);
+		query.setParameter("locationArrival", locationArrival);
+		query.setParameter("dateDepart", dateDepart);
+		try{
+			flights = query.getResultList();
+		}catch(NoResultException e){
+			Logger.getLogger(getClass().getName())
+			.log(Level.INFO, "no flight with this parameter");
+		}
+		return flights;
+
+	}
+	
+	@Override
+	public List<Flight> findFlightsOneWayByLocationAndDate(
+			String locationDepart, String locationArrival, Date dateDepart) {
+		
+		List<Flight> flights = null;
+		String jpql = "select f from Flight f where "
+				+ "f.departLocation.airportCode=:locationDepart And f.arrivalLocation.airportCode=:locationArrival AND f.departDate=:dateDepart";
+		TypedQuery<Flight> query = em.createQuery(jpql, Flight.class);
+		query.setParameter("locationDepart", locationDepart);
+		query.setParameter("locationArrival", locationArrival);
+		query.setParameter("dateDepart", dateDepart);
+		try{
+			flights = query.getResultList();
+		}catch(NoResultException e){
+			Logger.getLogger(getClass().getName())
+			.log(Level.INFO, "no flight with this parameter");
+		}
+		return flights;
+
 	}
 	
 	

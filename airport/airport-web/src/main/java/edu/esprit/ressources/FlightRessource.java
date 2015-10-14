@@ -1,5 +1,8 @@
 package edu.esprit.ressources;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -9,6 +12,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import edu.esprit.persistance.Flight;
+import edu.esprit.persistance.Location;
 import edu.esprit.services.FlightServiceLocal;
 import edu.esprit.services.GwMessage;
 
@@ -31,6 +35,16 @@ public class FlightRessource {
 	@Produces("application/json")
      public Flight find(@PathParam("number") String number ) {
 		return myejb.findFlightByNumber(number);
+	}
+	
+	@GET
+	@Path("/searchOneWay/{departLocation}/{arrivalLocation}/{dateDepart}")
+	@Produces("application/json")
+     public List<Flight> find(@PathParam("departLocation") String departLocationCode,
+    		 			@PathParam("arrivalLocation") String arrivalLocationCode,
+		 				@PathParam("dateDepart") Date dateDepart  ) {
+		
+		return myejb.findFlightsOneWayByLocationAndDate(departLocationCode, arrivalLocationCode, dateDepart);
 	}
 	
 	
