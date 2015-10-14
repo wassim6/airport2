@@ -2,7 +2,7 @@ package edu.esprit.persistance;
 
 import java.io.Serializable;
 import java.lang.Integer;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -26,6 +26,7 @@ public class Flight implements Serializable {
 	private Integer availableEconomicSeats;
 	private Integer availableBusinessSeats;
 	private Integer availableFirstSeats;
+	private String flightStatus;
 
 	private Plane plane;
 
@@ -68,6 +69,8 @@ public class Flight implements Serializable {
 		this.availableEconomicSeats = this.plane.getEconomicSeats();
 		this.availableBusinessSeats = this.plane.getBusinessSeats();
 		this.availableFirstSeats = this.plane.getFirstSeats();
+		
+		this.flightStatus=" Arrival Time scheduled: "+arrivalDate;
 	}
 
 	public Flight(Integer idFlight, String flightNumber,
@@ -91,6 +94,8 @@ public class Flight implements Serializable {
 		this.availableEconomicSeats = this.plane.getEconomicSeats();
 		this.availableBusinessSeats = this.plane.getBusinessSeats();
 		this.availableFirstSeats = this.plane.getFirstSeats();
+		
+		this.flightStatus=" Arrival Time scheduled: "+arrivalDate;
 	}
 
 	@Id
@@ -111,7 +116,8 @@ public class Flight implements Serializable {
 	public void setFlightNumber(String FlightNumber) {
 		this.flightNumber = FlightNumber;
 	}
-
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDepartDate() {
 		return this.departDate;
 	}
@@ -120,6 +126,7 @@ public class Flight implements Serializable {
 		this.departDate = DepartDate;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getArrivalDate() {
 		return this.arrivalDate;
 	}
@@ -186,8 +193,6 @@ public class Flight implements Serializable {
 		this.airlineCompany = airlineCompany;
 	}
 
-//	@ManyToOne
-//	@JoinColumn(name = "departLocationId_fk")
 	public String getDepartLocation() {
 		return departLocation;
 	}
@@ -196,8 +201,6 @@ public class Flight implements Serializable {
 		this.departLocation = departLocation;
 	}
 
-//	@ManyToOne
-//	@JoinColumn(name = "arrivalLocationId_fk")
 	public String getArrivalLocation() {
 		return arrivalLocation;
 	}
@@ -214,6 +217,14 @@ public class Flight implements Serializable {
 
 	public void setPlane(Plane plane) {
 		this.plane = plane;
+	}
+
+	public String getFlightStatus() {
+		return flightStatus;
+	}
+
+	public void setFlightStatus(String flightStatus) {
+		this.flightStatus = flightStatus;
 	}
 
 }

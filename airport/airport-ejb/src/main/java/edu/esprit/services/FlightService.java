@@ -37,6 +37,14 @@ public class FlightService implements FlightServiceLocal {
 	public void update(Flight flight) {
 		em.merge(flight);
 	}
+
+	public Flight findFlightById(Integer id) {
+		return em.find(Flight.class, id);
+	}
+
+	public Flight findFlightByNumber(String name) {
+		return em.find(Flight.class, name);
+	}
 	
 
 }
