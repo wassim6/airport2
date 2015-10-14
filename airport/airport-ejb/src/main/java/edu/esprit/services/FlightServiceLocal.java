@@ -15,6 +15,9 @@ public interface FlightServiceLocal {
 	void update(Flight flight);
 	Flight findFlightById(Integer id);
 	Flight findFlightByNumber(String name);
+	
+//	List<Flight> findFlightsByLocationAndDate();
+	
 	//List<Flight> findAllF();
 	
 

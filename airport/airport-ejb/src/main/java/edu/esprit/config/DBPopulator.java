@@ -1,6 +1,6 @@
 package edu.esprit.config;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -88,13 +88,13 @@ public class DBPopulator {
 
 		airlineCompanyServiceLocal.add(airlineCompany1);
 		airlineCompanyServiceLocal.add(airlineCompany2);
-		Date date1 = new Date(1990, 10, 28);
-		Date date2 = new Date(1990, 10, 28);
+		Date date1 = new Date(1444838400);
+		Date date2 = new Date(2015, 10, 28);
 
 		Flight flight1 = new Flight("TUKH789", "Tunisie, Tunis, Tunis-Carthage International Airport", "France, Paris, Paris Orly Airport", date1,
-				date2, 120, 2200, 0, plane1, airlineCompany1);
+				date2, 120, 2200, 0,300, plane1, airlineCompany1);
 		Flight flight2 = new Flight("FRTN447", "France, Paris, Paris Orly Airport", "Tunisie, Tunis, Tunis-Carthage International Airport", date1,
-				date2, 87, 1450, 1, plane2, airlineCompany2);
+				date2, 87, 1450, 1,320, plane2, airlineCompany2);
 
 		flightServiceLocal.add(flight1);
 		flightServiceLocal.add(flight2);

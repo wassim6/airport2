@@ -40,7 +40,6 @@ public class FlightRessource {
 	
 	
 	
-	
 /*	@POST
 	@Consumes("application/json")
 	public void addFlight(Flight flight){

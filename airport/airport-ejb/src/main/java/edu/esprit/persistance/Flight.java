@@ -27,6 +27,7 @@ public class Flight implements Serializable {
 	private Integer availableBusinessSeats;
 	private Integer availableFirstSeats;
 	private String flightStatus;
+	private Integer price;
 
 	private Plane plane;
 
@@ -53,7 +54,7 @@ public class Flight implements Serializable {
 	public Flight(String flightNumber, String departLocation,
 			String arrivalLocation, Date departDate, Date arrivalDate,
 			Integer flightDuration, Integer flightMiles, Integer numberStops,
-			Plane plane, AirlineCompany airlineCompany) {
+			Integer price, Plane plane, AirlineCompany airlineCompany) {
 
 		this.flightNumber = flightNumber;
 		this.departLocation = departLocation;
@@ -71,6 +72,7 @@ public class Flight implements Serializable {
 		this.availableFirstSeats = this.plane.getFirstSeats();
 		
 		this.flightStatus=" Arrival Time scheduled: "+arrivalDate;
+		this.price=price;
 	}
 
 	public Flight(Integer idFlight, String flightNumber,
@@ -78,7 +80,7 @@ public class Flight implements Serializable {
 			Date arrivalDate, Integer flightDuration, Integer flightMiles,
 			Integer numberStops, Integer availableEconomicSeats,
 			Integer availableBusinessSeats, Integer availableFirstSeats,
-			Plane plane, AirlineCompany airlineCompany) {
+			Integer price, Plane plane, AirlineCompany airlineCompany) {
 		this.idFlight = idFlight;
 		this.flightNumber = flightNumber;
 		this.departLocation = departLocation;
@@ -96,6 +98,7 @@ public class Flight implements Serializable {
 		this.availableFirstSeats = this.plane.getFirstSeats();
 		
 		this.flightStatus=" Arrival Time scheduled: "+arrivalDate;
+		this.price=price;
 	}
 
 	@Id
@@ -225,6 +228,14 @@ public class Flight implements Serializable {
 
 	public void setFlightStatus(String flightStatus) {
 		this.flightStatus = flightStatus;
+	}
+
+	public Integer getPrice() {
+		return price;
+	}
+
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
 
 }
