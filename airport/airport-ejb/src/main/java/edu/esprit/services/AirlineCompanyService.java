@@ -1,11 +1,15 @@
 package edu.esprit.services;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import edu.esprit.persistance.AirlineCompany;
 
@@ -14,7 +18,7 @@ import edu.esprit.persistance.AirlineCompany;
  */
 @Stateless
 @LocalBean
-public class AirlineCompanyService implements AirlineCompanyServiceLocal {
+public class AirlineCompanyService implements AirlineCompanyServiceLocal,AirlineCompanyServiceRemote {
 
 	@PersistenceContext
 	private EntityManager em;
@@ -57,7 +61,17 @@ public class AirlineCompanyService implements AirlineCompanyServiceLocal {
 
 	@Override
 	public AirlineCompany findAirlineCompanyByName(String name) {
-		return em.find(AirlineCompany.class, name);
+		AirlineCompany found = null;
+		String jpql = "select a from AirlineCompany a where a.name=:x";
+		TypedQuery<AirlineCompany> query = em.createQuery(jpql, AirlineCompany.class);
+		query.setParameter("x", name);
+		try{
+			found = query.getSingleResult();
+		}catch(NoResultException e){
+			Logger.getLogger(getClass().getName())
+			.log(Level.INFO, "no AirlineCompany found");
+		}
+		return found;
 	}
 
 }

@@ -22,6 +22,8 @@ public class AirlineCompany implements Serializable {
 	private Integer idAirlineCompany;
 	private String name;
 	private String logo;
+	private Double rate;
+	private Integer totalRate;
 	private List<Flight> flights;
 	private static final long serialVersionUID = 1L;
 
@@ -30,11 +32,20 @@ public class AirlineCompany implements Serializable {
 	
 	
 	
+
+
+
+
 	@Override
 	public String toString() {
 		return "AirlineCompany [idAirlineCompany=" + idAirlineCompany
-				+ ", name=" + name + ", logo=" + logo + "]";
+				+ ", name=" + name + ", logo=" + logo + ", rate=" + rate
+				+ ", totalRate=" + totalRate + "]";
 	}
+
+
+
+
 
 
 
@@ -42,6 +53,8 @@ public class AirlineCompany implements Serializable {
 		this.idAirlineCompany = idAirlineCompany;
 		this.name = name;
 		this.logo = logo;
+		this.rate=0.0;
+		this.totalRate=0;
 	}
 
 
@@ -49,6 +62,8 @@ public class AirlineCompany implements Serializable {
 	public AirlineCompany(String name, String logo) {
 		this.name = name;
 		this.logo = logo;
+		this.rate=0.0;
+		this.totalRate=0;
 	}
 
 
@@ -83,6 +98,30 @@ public class AirlineCompany implements Serializable {
 	}
 	public void setFlights(List<Flight> flights) {
 		this.flights = flights;
+	}
+
+
+
+	public Double getRate() {
+		return rate;
+	}
+
+
+
+	public void setRate(Double rate) {
+		this.rate = rate;
+	}
+
+
+
+	public Integer getTotalRate() {
+		return totalRate;
+	}
+
+
+
+	public void setTotalRate(Integer totalRate) {
+		this.totalRate = totalRate;
 	}
    
 }
