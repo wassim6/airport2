@@ -19,4 +19,6 @@ public interface EmployeeServiceLocal {
 	public void update(Employee employee);
 
 	public void delete(Employee employee);
+	
+	public List<Employee> findByEmail(String Job);
 }

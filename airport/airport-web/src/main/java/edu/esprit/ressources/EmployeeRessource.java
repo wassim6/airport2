@@ -14,7 +14,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import edu.esprit.persistance.Employee;
-import edu.esprit.persistance.Flight;
 import edu.esprit.services.EmployeeServiceLocal;
 
 
@@ -67,4 +66,16 @@ EmployeeServiceLocal myejb;
 	}
 	
 */
+	
+	@GET
+	@Path("/findByEmail/{email}")
+	@Produces("application/json")
+	public List<Employee> findByEmail(@PathParam("email") String email) {
+
+		return myejb.findByEmail(email);
+
+	}
+	
+	
+	
 }

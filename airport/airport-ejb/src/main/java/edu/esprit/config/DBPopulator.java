@@ -29,6 +29,7 @@ import edu.esprit.services.FlightServiceLocal;
 import edu.esprit.services.PassangerServiceLocal;
 import edu.esprit.services.PaymentServiceLocal;
 import edu.esprit.services.PlaneServiceLocal;
+import edu.esprit.services.ReservationService;
 import edu.esprit.services.ReservationServiceLocal;
 
 @Singleton
@@ -106,6 +107,7 @@ public class DBPopulator {
     	
     	
     	
+    	
     	Feedback feedback1 = new Feedback("hhhhhh",client1);
     	Feedback feedback2 = new Feedback("hdjdvh",client1);
     	
@@ -116,6 +118,9 @@ public class DBPopulator {
 		
     	
     	
+    	
+    			
+    			
 		
 		Location location1 = new Location("ENH", "Tunisia",
 				"Hammamet - Enfida", 4030,
@@ -171,18 +176,27 @@ public class DBPopulator {
 		flightServiceLocal.add(flight3);
 		flightServiceLocal.add(flight4);
 		
+		Date dateNow = new Date();
 		
 		
-		Reservation reservation1 = new Reservation("economyc", flight1);
-		reservationServiceLocal.addReservation(reservation1);
+		Reservation reservation = new Reservation(dateNow,"confirmé","A",flight1);
+		
+		reservationServiceLocal.Reserver(reservation);
+		
+		
+		
+		Payment payment = new Payment(100, "succes", reservation, client1);
+		
+		paymentServiceLocal.add(payment);
+		
 		
 		try {
 			date1=sdf.parse("20/03/1993 0:00");
 		}catch(ParseException e) {
 			e.printStackTrace();
 		}
-		Passanger passanger1= new Passanger("wass", "bou6", "12578654", date1, reservation1);
-		Passanger passanger2= new Passanger("rima", "aifa", "4875624OP", date1, reservation1);
+		Passanger passanger1= new Passanger("wass", "bou6", "12578654", date1, reservation);
+		Passanger passanger2= new Passanger("rima", "aifa", "4875624OP", date1, reservation);
 		passangerServiceLocal.addPassanger(passanger1);
 		passangerServiceLocal.addPassanger(passanger2);
 

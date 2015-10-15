@@ -15,5 +15,7 @@ public interface ClientServiceLocal {
 	public void update(Client client);
 
 	public void delete(Client client);
+	
+	public Client existC(String email,String password);
 
 }

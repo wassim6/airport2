@@ -19,6 +19,8 @@ public class Feedback implements Serializable {
 	private Integer idFeedback;
 	private String feedback;
 	private Client clientId;
+	private Integer rate;
+	private AirlineCompany airline;
 	private static final long serialVersionUID = 1L;
 
 	public Feedback() {
@@ -57,6 +59,32 @@ public class Feedback implements Serializable {
 	}
 	public void setClientId(Client clientId) {
 		this.clientId = clientId;
+	}
+
+	@ManyToOne
+	@JoinColumn( name= "airline_fk")
+	public AirlineCompany getAirline() {
+		return airline;
+	}
+
+
+	public void setAirline(AirlineCompany airline) {
+		this.airline = airline;
+	}
+
+
+	public Integer getRate() {
+		return rate;
+	}
+
+
+	public void setRate(Integer rate) {
+		
+		/*if(rate>5 || rate<1)
+		{
+			this.rate= 0;
+		}*/
+		this.rate = rate;
 	}
    
 }

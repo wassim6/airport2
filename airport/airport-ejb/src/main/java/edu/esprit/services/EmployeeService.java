@@ -23,19 +23,7 @@ public class EmployeeService implements EmployeeServiceLocal {
     public EmployeeService() {
       
     }
-	/*	
-    @Override
-	public List<Flight> findAll(Integer id) {
-		 
-			
-    	List<Flight> Flights = null;
-				String jpql = "select f from Flight f where f.idEmployee.idEmployee=:x";
-				TypedQuery<Flight> query = em.createQuery(jpql,Flight.class);
-				query.setParameter("x", id);
-				Flights = query.getResultList();
-				return Flights;
-			}
-		*/	
+	
 
 	@Override
 	public void add(Employee employee) {
@@ -58,5 +46,19 @@ public class EmployeeService implements EmployeeServiceLocal {
 	public Employee find(Integer id) {			
 				return em.find(Employee.class, id);
 			}
+
+	
+
+	
+
+	
+	@Override
+	public List<Employee> findByEmail(String email) {
+		email="%"+email+"%";
+			return 
+					 em.createQuery("select e from Employee e where e.email like :x",Employee.class)
+					 .setParameter("x",email)
+					 .getResultList();
+		}
 	
 }

@@ -22,7 +22,7 @@ public class Reservation implements Serializable {
 	   
 	
 	private Integer idReservation;
-	private Date dateReservation;
+	private java.util.Date dateReservation;
 	private String status;
 	private String travelClass;
 	
@@ -33,10 +33,26 @@ public class Reservation implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public Reservation() {
-	}  
+	} 
 	
 	
 	
+	
+
+
+
+	public Reservation(Date dateReservation, String status, String travelClass,
+			Flight flight) {
+		super();
+		this.dateReservation = dateReservation;
+		this.status = status;
+		this.travelClass = travelClass;
+		this.flight = flight;
+	}
+
+
+
+
 	public Reservation(String travelClass, Flight flight) {
 		this.travelClass = travelClass;
 		this.flight = flight;
@@ -119,7 +135,8 @@ public class Reservation implements Serializable {
 
 //	@ManyToOne
 //	@JoinColumn( name= "passanger_fk")
-	@OneToMany(mappedBy = "reservations")
+	@OneToMany(mappedBy = "reservations",fetch=FetchType.EAGER)
+	@XmlTransient
 	public List<Passanger> getPassangers() {
 		return passangers;
 	}

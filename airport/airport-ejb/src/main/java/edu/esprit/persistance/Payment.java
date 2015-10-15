@@ -2,7 +2,9 @@ package edu.esprit.persistance;
 
 import java.io.Serializable;
 import java.lang.Integer;
-import java.sql.Date;
+
+
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -32,10 +34,11 @@ public class Payment implements Serializable {
 	}   
 	
 	
-	public Payment(Date paymentDate, Integer paymentAmount,
+	public Payment(Integer paymentAmount,
 			String paymentStatus, Reservation reservation, Client client) {
 		super();
-		this.paymentDate = paymentDate;
+		Date dateNow = new Date();
+		this.paymentDate = dateNow;
 		this.paymentAmount = paymentAmount;
 		this.paymentStatus = paymentStatus;
 		this.reservation = reservation;

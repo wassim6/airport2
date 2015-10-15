@@ -22,8 +22,12 @@ public class AirlineCompany implements Serializable {
 	private Integer idAirlineCompany;
 	private String name;
 	private String logo;
+<<<<<<< HEAD
 	private Double rate;
 	private Integer totalRate;
+=======
+	private List<Feedback> feedbacks;
+>>>>>>> branch 'master' of https://github.com/wassim6/airport2.git
 	private List<Flight> flights;
 	private static final long serialVersionUID = 1L;
 
@@ -101,6 +105,7 @@ public class AirlineCompany implements Serializable {
 	}
 
 
+<<<<<<< HEAD
 
 	public Double getRate() {
 		return rate;
@@ -122,6 +127,18 @@ public class AirlineCompany implements Serializable {
 
 	public void setTotalRate(Integer totalRate) {
 		this.totalRate = totalRate;
+=======
+	@OneToMany( mappedBy = "airline" )
+	@XmlTransient
+	public List<Feedback> getFeedbacks() {
+		return feedbacks;
+	}
+
+
+
+	public void setFeedbacks(List<Feedback> feedbacks) {
+		this.feedbacks = feedbacks;
+>>>>>>> branch 'master' of https://github.com/wassim6/airport2.git
 	}
    
 }

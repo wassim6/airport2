@@ -18,9 +18,9 @@ public class Employee implements Serializable {
 	private Integer idEmployee;
 	private String firstName;
 	private String lastName;
-	private String Job;
 	private String email;
-	private Flight flightId;
+	
+	private List<Affectation> affectations;
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -53,13 +53,7 @@ public class Employee implements Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}   
-	public String getJob() {
-		return this.Job;
-	}
-
-	public void setJob(String Job) {
-		this.Job = Job;
-	}   
+	
 	public String getEmail() {
 		return this.email;
 	}
@@ -68,18 +62,20 @@ public class Employee implements Serializable {
 		this.email = email;
 	}
 	
-	
-	
-	@ManyToOne
-	@JoinColumn( name= "flightId_fk")
-	public Flight getFlightId() {
-		return flightId;
+	@OneToMany( mappedBy = "employee")
+	public List<Affectation> getAffectations() {
+		return affectations;
 	}
 
 
-	public void setFlightId(Flight flightId) {
-		this.flightId = flightId;
+
+	public void setAffectations(List<Affectation> affectations) {
+		this.affectations = affectations;
 	}
+
+
+
+
 
 
 }
