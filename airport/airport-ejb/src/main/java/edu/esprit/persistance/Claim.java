@@ -17,6 +17,7 @@ public class Claim implements Serializable {
 
 	
 	private Integer idClaim;
+	private String subject;
 	private String Claim;
 	private Client clientClaim;
 	private static final long serialVersionUID = 1L;
@@ -63,6 +64,18 @@ public class Claim implements Serializable {
 	@Override
 	public String toString() {
 		return "Claim [idClaim=" + idClaim + ", Claim=" + Claim + "]";
+	}
+
+
+
+	public String getSubject() {
+		return subject;
+	}
+
+
+
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
    
    

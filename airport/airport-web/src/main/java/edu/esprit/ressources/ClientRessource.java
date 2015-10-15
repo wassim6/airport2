@@ -35,6 +35,15 @@ public class ClientRessource {
 
 	}
 	
+	@GET
+	@Path("/findClient/{email}/{password}")
+	@Produces("application/json")
+	public Client existC(@PathParam("email") String email, @PathParam("password") String password ) {
+
+		return myejb.existC(email, password);
+
+	}
+	
 	@PUT
     @Path("/update")
 	@Consumes("application/json")

@@ -3,7 +3,7 @@ package edu.esprit.persistance;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -22,7 +22,7 @@ public class Reservation implements Serializable {
 	   
 	
 	private Integer idReservation;
-	private Date dateReservation;
+	private java.util.Date dateReservation;
 	private String status;
 	private String travelClass;
 	
@@ -34,8 +34,29 @@ public class Reservation implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public Reservation() {
-	}  
+	} 
 	
+	
+	
+	
+
+
+
+	public Reservation(Date dateReservation, String status, String travelClass,
+			Flight flight) {
+		super();
+		this.dateReservation = dateReservation;
+		this.status = status;
+		this.travelClass = travelClass;
+		this.flight = flight;
+	}
+
+
+
+
+
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdReservation() {

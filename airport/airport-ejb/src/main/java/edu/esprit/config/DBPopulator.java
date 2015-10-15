@@ -17,6 +17,7 @@ import edu.esprit.persistance.Client;
 import edu.esprit.persistance.Feedback;
 import edu.esprit.persistance.Flight;
 import edu.esprit.persistance.Location;
+import edu.esprit.persistance.Passanger;
 import edu.esprit.persistance.Payment;
 import edu.esprit.persistance.Plane;
 import edu.esprit.persistance.Reservation;
@@ -27,6 +28,7 @@ import edu.esprit.services.FeedbackServiceLocal;
 import edu.esprit.services.FlightServiceLocal;
 import edu.esprit.services.PaymentServiceLocal;
 import edu.esprit.services.PlaneServiceLocal;
+import edu.esprit.services.ReservationService;
 import edu.esprit.services.ReservationServiceLocal;
 
 @Singleton
@@ -112,6 +114,9 @@ public class DBPopulator {
 		
     	
     	
+    	
+    			
+    			
 		
 		Location location1 = new Location("ENH", "Tunisia",
 				"Hammamet - Enfida", 4030,
@@ -166,6 +171,13 @@ public class DBPopulator {
 		
 		flightServiceLocal.add(flight3);
 		flightServiceLocal.add(flight4);
+		
+		Date dateNow = new Date();
+		
+		
+		Reservation reservation = new Reservation(dateNow,"confirmé","A",flight1);
+		
+		reservationServiceLocal.Reserver(reservation);
 		
 //		List<Flight> flights =null;
 //		flights=flightServiceLocal.findFlightsOneWayByLocationAndDate(location1, location2, date1);

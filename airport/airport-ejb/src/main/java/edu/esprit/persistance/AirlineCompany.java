@@ -22,6 +22,7 @@ public class AirlineCompany implements Serializable {
 	private Integer idAirlineCompany;
 	private String name;
 	private String logo;
+	private List<Feedback> feedbacks;
 	private List<Flight> flights;
 	private static final long serialVersionUID = 1L;
 
@@ -83,6 +84,19 @@ public class AirlineCompany implements Serializable {
 	}
 	public void setFlights(List<Flight> flights) {
 		this.flights = flights;
+	}
+
+
+	@OneToMany( mappedBy = "airline" )
+	@XmlTransient
+	public List<Feedback> getFeedbacks() {
+		return feedbacks;
+	}
+
+
+
+	public void setFeedbacks(List<Feedback> feedbacks) {
+		this.feedbacks = feedbacks;
 	}
    
 }
