@@ -57,6 +57,18 @@ public class FlightRessource {
 		return myejb.findFlightsOneWayByLocationAndDateOrderByPrice(departLocationCode, arrivalLocationCode, dateDepart, order);
 	}
 	
+	@GET
+	@Path("/searchOneWay/{departLocation}/{arrivalLocation}/{dateDepart}/{order}/{stops}")
+	@Produces("application/json")
+     public List<Flight> findOneWayByStopsAndPrice(@PathParam("departLocation") String departLocationCode,
+    		 			@PathParam("arrivalLocation") String arrivalLocationCode,
+		 				@PathParam("dateDepart") String dateDepart,
+		 				@PathParam("order") String order,
+		 				@PathParam("stops") Integer stops) {
+		
+		return myejb.findFlightsOneWayByLocationAndDateAndStopsOrderByPrice(departLocationCode, arrivalLocationCode, dateDepart, order, stops);
+	}
+	
 	
 	
 

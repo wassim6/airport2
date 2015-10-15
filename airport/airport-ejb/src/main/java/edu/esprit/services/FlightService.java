@@ -153,6 +153,48 @@ public class FlightService implements FlightServiceLocal {
 		}
 		return flights;
 	}
+
+	@Override
+	public List<Flight> findFlightsOneWayByLocationAndDateAndStopsOrderByPrice(
+			String locationDepart, String locationArrival, String dateDepart,
+			String order, Integer stops) {
+		String p1=dateDepart+"-00:00:00";
+		String p2=dateDepart+"-23:59:00";
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy-hh:mm");
+		Date date1 = new Date();
+		Date date2 = new Date();
+		try {
+			date1=sdf.parse(p1);
+			date2=sdf.parse(p2);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}		
+		
+		if(order.equals("ASC") || order.equals("DESC") || order.equals("asc") || order.equals("desc") ){	
+		}
+		else{
+			order="ASC";
+		}
+		
+		List<Flight> flights = null;
+		String jpql = "select f from Flight f where "
+				+ "f.departLocation.airportCode=:locationDepart And f.arrivalLocation.airportCode=:locationArrival "
+				+ "AND f.departDate>=:dateDepart AND f.departDate<=:dateDepart2 AND f.numberStops=:stops ORDER BY f.price "+order;
+		TypedQuery<Flight> query = em.createQuery(jpql, Flight.class);
+		query.setParameter("locationDepart", locationDepart);
+		query.setParameter("locationArrival", locationArrival);
+		query.setParameter("dateDepart", date1);
+		query.setParameter("dateDepart2", date2);
+		query.setParameter("stops", stops);
+		try{
+			flights = query.getResultList();
+		}catch(NoResultException e){
+			Logger.getLogger(getClass().getName())
+			.log(Level.INFO, "no flight with this parameter");
+		}
+		return flights;
+	}
 	
 	
 	

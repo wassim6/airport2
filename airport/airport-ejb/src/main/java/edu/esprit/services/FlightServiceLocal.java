@@ -24,6 +24,7 @@ public interface FlightServiceLocal {
 	
 	List<Flight> findFlightsOneWayByLocationAndDate(String locationDepart, String locationArrival, String dateDepart);
 	List<Flight> findFlightsOneWayByLocationAndDateOrderByPrice(String locationDepart, String locationArrival, String dateDepart, String order);
+	List<Flight> findFlightsOneWayByLocationAndDateAndStopsOrderByPrice(String locationDepart, String locationArrival, String dateDepart, String order, Integer stops);
 	
 	
 	//List<Flight> findAllF();
