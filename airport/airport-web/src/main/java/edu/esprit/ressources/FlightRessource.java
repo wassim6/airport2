@@ -14,7 +14,6 @@ import javax.ws.rs.Produces;
 import edu.esprit.persistance.Flight;
 import edu.esprit.persistance.Location;
 import edu.esprit.services.FlightServiceLocal;
-import edu.esprit.services.GwMessage;
 
 
 @Path("/flight")

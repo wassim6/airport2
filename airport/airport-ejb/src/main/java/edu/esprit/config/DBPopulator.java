@@ -21,7 +21,6 @@ import edu.esprit.services.AirlineCompanyServiceLocal;
 import edu.esprit.services.ClientInfoServiceLocal;
 import edu.esprit.services.ClientServiceLocal;
 import edu.esprit.services.FlightServiceLocal;
-import edu.esprit.services.GwMessage;
 import edu.esprit.services.PlaneServiceLocal;
 
 @Singleton
@@ -42,9 +41,6 @@ public class DBPopulator {
 
 	@EJB
 	private FlightServiceLocal flightServiceLocal;
-
-	@EJB
-	private GwMessage gwMessage;
 	
 	public DBPopulator() {
 		
