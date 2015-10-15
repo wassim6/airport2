@@ -58,5 +58,15 @@ public class EmployeeService implements EmployeeServiceLocal {
 	public Employee find(Integer id) {			
 				return em.find(Employee.class, id);
 			}
+
+	@Override
+	public List<Employee> findByJob(String Job) {
+		Job="%"+Job+"%";
+		return 
+				 em.createQuery("select e from Employee e where e.job like :x",Employee.class)
+				 .setParameter("x",Job)
+				 .getResultList();
+	
+	}
 	
 }

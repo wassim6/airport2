@@ -57,14 +57,12 @@ EmployeeServiceLocal myejb;
 		 myejb.delete(employee);
 
 	}
-	/*@GET
-	@Path("/findAll/{id}")
+	@GET
+	@Path("/findByJob/{Job}")
 	@Produces("application/json")
-	public List<Flight> getAll(@PathParam("id") Integer id) {
-		
-		return myejb.findAll(id);
-		
+	public List<Employee> findByJob(@PathParam("Job") String Job) {
+
+		return myejb.findByJob(Job);
+
 	}
-	
-*/
 }
