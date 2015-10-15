@@ -21,14 +21,17 @@ public class ReservationRessource {
 	
 	
 	@PUT
-	@Path("/update")
-	@Produces("application/json")
+	@Path("/cancel")
+	@Consumes("application/json")
 	public void CancelReservation(Reservation reservation) {
-
 		 myejb.CancelReservation(reservation);
-	
 
 	}
+	
+/*	@POST
+	@Path("/add")
+	@Consumes("application/json")*/
+	
 	
 
 }

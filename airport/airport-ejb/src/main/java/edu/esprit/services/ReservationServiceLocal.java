@@ -7,6 +7,9 @@ import edu.esprit.persistance.Reservation;
 @Local
 public interface ReservationServiceLocal {
 	
-	public void CancelReservation(Reservation reservation) ;
+	public void CancelReservation(Reservation reservation);
+	
+	public void addReservation(Reservation reservation);
+	
 
 }

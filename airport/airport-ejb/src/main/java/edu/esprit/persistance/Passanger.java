@@ -20,13 +20,26 @@ public class Passanger implements Serializable {
 	private Integer idPassanger;
 	private String firstName;
 	private String lastName;
-	private Integer passportNumber;
+	private String passportNumber;
 	private Date dateOfBirth;
-	private List<Reservation> reservations;
+	private Reservation reservations;
 	private static final long serialVersionUID = 1L;
 
 	public Passanger() {
 	}
+	
+	
+
+	public Passanger(String firstName, String lastName, String passportNumber,
+			Date dateOfBirth, Reservation reservations) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.passportNumber = passportNumber;
+		this.dateOfBirth = dateOfBirth;
+		this.reservations=reservations;
+	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,20 +67,22 @@ public class Passanger implements Serializable {
 		this.lastName = LastName;
 	}
 
-	public Integer getPassportNumber() {
+	public String getPassportNumber() {
 		return passportNumber;
 	}
 
-	public void setPassportNumber(Integer passportNumber) {
+	public void setPassportNumber(String passportNumber) {
 		this.passportNumber = passportNumber;
 	}
 
-	@OneToMany(mappedBy = "passanger")
-	public List<Reservation> getReservations() {
+	//@OneToMany(mappedBy = "passanger")
+	@ManyToOne
+	@JoinColumn( name= "reservation_fk")
+	public Reservation getReservations() {
 		return reservations;
 	}
 
-	public void setReservations(List<Reservation> reservations) {
+	public void setReservations(Reservation reservations) {
 		this.reservations = reservations;
 	}
 
