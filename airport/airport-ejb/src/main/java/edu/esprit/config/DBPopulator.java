@@ -110,19 +110,24 @@ public class DBPopulator {
 				date2, 120, 2200, 0,300, plane1, airlineCompany1);
 		Flight flight2 = new Flight("FRTN447", location2, location1, date1,
 				date2, 87, 1450, 1,320, plane2, airlineCompany2);
+		
+		
+		try {
+			date1=sdf.parse("21/12/2014 23:59");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Flight flight3 = new Flight("TUKH448", location1, location2, date1,
+				date2, 87, 1450, 1,420, plane2, airlineCompany2);
+		
 
 		flightServiceLocal.add(flight1);
 		flightServiceLocal.add(flight2);
+		flightServiceLocal.add(flight3);
 		
-		
-		List<Flight> flights =null;
-		flights=flightServiceLocal.findFlightsOneWayByLocationAndDate(location1, location2, date1);
-		
-		for(Flight f : flights){
-			System.out.println(f.toString());
-		}
+	
 //		System.out.println(flights.toString());
-
 		//System.out.println(flightServiceLocal.findFlightByNumber("TUKH789"));
 		
 		//gwMessage = new GwMessage();

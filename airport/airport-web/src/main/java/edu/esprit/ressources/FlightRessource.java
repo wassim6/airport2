@@ -40,26 +40,25 @@ public class FlightRessource {
 	@GET
 	@Path("/searchOneWay/{departLocation}/{arrivalLocation}/{dateDepart}")
 	@Produces("application/json")
-     public List<Flight> find(@PathParam("departLocation") String departLocationCode,
+     public List<Flight> findOneWay(@PathParam("departLocation") String departLocationCode,
     		 			@PathParam("arrivalLocation") String arrivalLocationCode,
-		 				@PathParam("dateDepart") Date dateDepart  ) {
+		 				@PathParam("dateDepart") String dateDepart  ) {
 		
 		return myejb.findFlightsOneWayByLocationAndDate(departLocationCode, arrivalLocationCode, dateDepart);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-/*	@POST
-	@Consumes("application/json")
-	public void addFlight(Flight flight){
-		myejb.add(flight);
-		//GwMessage gwMessage = new GwMessage();
-		//gwMessage.
+	@GET
+	@Path("/searchOneWay/{departLocation}/{arrivalLocation}/{dateDepart}/{order}")
+	@Produces("application/json")
+     public List<Flight> findOneWayByPrice(@PathParam("departLocation") String departLocationCode,
+    		 			@PathParam("arrivalLocation") String arrivalLocationCode,
+		 				@PathParam("dateDepart") String dateDepart,
+		 				@PathParam("order") String order) {
 		
-	}*/
+		return myejb.findFlightsOneWayByLocationAndDateOrderByPrice(departLocationCode, arrivalLocationCode, dateDepart, order);
+	}
+	
+	
+	
+
 }

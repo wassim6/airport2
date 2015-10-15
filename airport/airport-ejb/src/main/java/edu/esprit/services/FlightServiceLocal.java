@@ -20,8 +20,11 @@ public interface FlightServiceLocal {
 	Flight findFlightById(Integer id);
 	Flight findFlightByNumber(String name);
 	
-	List<Flight> findFlightsOneWayByLocationAndDate(Location departLocation, Location locationArrival, Date dateDepart);
-	List<Flight> findFlightsOneWayByLocationAndDate(String departLocation, String locationArrival, Date dateDepart);
+//	List<Flight> findFlightsOneWayByLocationAndDate(Location departLocation, Location locationArrival, Date dateDepart);
+	
+	List<Flight> findFlightsOneWayByLocationAndDate(String locationDepart, String locationArrival, String dateDepart);
+	List<Flight> findFlightsOneWayByLocationAndDateOrderByPrice(String locationDepart, String locationArrival, String dateDepart, String order);
+	
 	
 	//List<Flight> findAllF();
 	
