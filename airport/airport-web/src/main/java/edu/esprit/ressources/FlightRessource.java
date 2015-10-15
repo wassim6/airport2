@@ -39,11 +39,77 @@ public class FlightRessource {
 	@GET
 	@Path("/searchOneWay/{departLocation}/{arrivalLocation}/{dateDepart}")
 	@Produces("application/json")
-     public List<Flight> find(@PathParam("departLocation") String departLocationCode,
+     public List<Flight> findOneWay(@PathParam("departLocation") String departLocationCode,
     		 			@PathParam("arrivalLocation") String arrivalLocationCode,
-		 				@PathParam("dateDepart") Date dateDepart  ) {
+		 				@PathParam("dateDepart") String dateDepart  ) {
 		
 		return myejb.findFlightsOneWayByLocationAndDate(departLocationCode, arrivalLocationCode, dateDepart);
+	}
+	
+	@GET
+	@Path("/searchOneWay/{departLocation}/{arrivalLocation}/{dateDepart}/{stops}")
+	@Produces("application/json")
+     public List<Flight> findOneWayWithStops(@PathParam("departLocation") String departLocationCode,
+    		 			@PathParam("arrivalLocation") String arrivalLocationCode,
+		 				@PathParam("dateDepart") String dateDepart, 
+		 				@PathParam("stops") Integer stops ) {
+		
+		return myejb.findFlightsOneWayByLocationAndDateAndStops(departLocationCode, arrivalLocationCode, dateDepart, stops);
+	}
+	
+	@GET
+	@Path("/searchOneWay/{departLocation}/{arrivalLocation}/{dateDepart}/{stops}/{minPrice}/{maxPrice}")
+	@Produces("application/json")
+     public List<Flight> findOneWayFullParam(@PathParam("departLocation") String departLocationCode,
+    		 			@PathParam("arrivalLocation") String arrivalLocationCode,
+		 				@PathParam("dateDepart") String dateDepart, 
+		 				@PathParam("stops") Integer stops,
+		 				@PathParam("minPrice") Integer minPrice,
+		 				@PathParam("maxPrice") Integer maxPrice) {
+		
+		return myejb.findFlightsOneWayFullParam(departLocationCode, arrivalLocationCode, dateDepart, stops, minPrice, maxPrice);
+	}
+	
+
+	
+	@GET
+	@Path("/searchOneWay2/{departLocation}/{arrivalLocation}/{dateDepart}/{orderBy}/{order}")
+	@Produces("application/json")
+     public List<Flight> findOneWayOrdered(@PathParam("departLocation") String departLocationCode,
+    		 			@PathParam("arrivalLocation") String arrivalLocationCode,
+		 				@PathParam("dateDepart") String dateDepart,
+		 				@PathParam("orderBy") String orderBy,
+		 				@PathParam("order") String order) {
+		
+		return myejb.findFlightsOneWayByLocationAndDateOrdered(departLocationCode, arrivalLocationCode, dateDepart, orderBy, order);
+	}
+	
+	@GET
+	@Path("/searchOneWay2/{departLocation}/{arrivalLocation}/{dateDepart}/{stops}/{orderBy}/{order}")
+	@Produces("application/json")
+     public List<Flight> findOneWayWithStopsOrdered(@PathParam("departLocation") String departLocationCode,
+    		 			@PathParam("arrivalLocation") String arrivalLocationCode,
+		 				@PathParam("dateDepart") String dateDepart,
+		 				@PathParam("orderBy") String orderBy,
+		 				@PathParam("order") String order,
+		 				@PathParam("stops") Integer stops) {
+		
+		return myejb.findFlightsOneWayByLocationAndDateAndStopsOrdered(departLocationCode, arrivalLocationCode, dateDepart,stops, orderBy, order);
+	}
+	
+	@GET
+	@Path("/searchOneWay2/{departLocation}/{arrivalLocation}/{dateDepart}/{stops}/{minPrice}/{maxPrice}/{orderBy}/{order}")
+	@Produces("application/json")
+     public List<Flight> findOneWayFullParamOrdered(@PathParam("departLocation") String departLocationCode,
+    		 			@PathParam("arrivalLocation") String arrivalLocationCode,
+		 				@PathParam("dateDepart") String dateDepart,
+		 				@PathParam("orderBy") String orderBy,
+		 				@PathParam("order") String order,
+		 				@PathParam("stops") Integer stops,
+		 				@PathParam("minPrice") Integer minPrice,
+		 				@PathParam("maxPrice") Integer maxPrice) {
+		
+		return myejb.findFlightsOneWayFullParamOrdered(departLocationCode, arrivalLocationCode, dateDepart,stops, minPrice, maxPrice, orderBy, order);
 	}
 	
 	
@@ -53,12 +119,17 @@ public class FlightRessource {
 	
 	
 	
-/*	@POST
-	@Consumes("application/json")
-	public void addFlight(Flight flight){
-		myejb.add(flight);
-		//GwMessage gwMessage = new GwMessage();
-		//gwMessage.
+	@GET
+	@Path("/searchRoundTrip/{departLocation}/{arrivalLocation}/{dateDepart}/{dateReturn}")
+	@Produces("application/json")
+     public List<Flight> findRoundTrip(@PathParam("departLocation") String departLocationCode,
+    		 			@PathParam("arrivalLocation") String arrivalLocationCode,
+		 				@PathParam("dateDepart") String dateDepart, 
+		 				@PathParam("dateReturn") String dateReturn  ) {
 		
-	}*/
+		return myejb.findFlightsRoundTripByLocationAndDate(departLocationCode, arrivalLocationCode, dateDepart, dateReturn);
+	}
+	
+	
+
 }

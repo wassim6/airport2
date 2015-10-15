@@ -1,6 +1,7 @@
 package edu.esprit.services;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,10 +21,19 @@ public interface FlightServiceLocal {
 	Flight findFlightById(Integer id);
 	Flight findFlightByNumber(String name);
 	
-	List<Flight> findFlightsOneWayByLocationAndDate(Location departLocation, Location locationArrival, Date dateDepart);
-	List<Flight> findFlightsOneWayByLocationAndDate(String departLocation, String locationArrival, Date dateDepart);
 	
-	//List<Flight> findAllF();
+	List<Flight> findFlightsOneWayByLocationAndDate(String locationDepart, String locationArrival, String dateDepart);
+	List<Flight> findFlightsOneWayByLocationAndDateAndStops(String locationDepart, String locationArrival, String dateDepart, Integer stops);
+	List<Flight> findFlightsOneWayFullParam(String locationDepart, String locationArrival, String dateDepart, Integer stops, Integer minPrice, Integer maxPrice);
+
+	
+	List<Flight> findFlightsOneWayByLocationAndDateOrdered(String locationDepart, String locationArrival, String dateDepart, String orderBy, String order);
+	List<Flight> findFlightsOneWayByLocationAndDateAndStopsOrdered(String locationDepart, String locationArrival, String dateDepart, Integer stops, String orderBy, String order);
+	List<Flight> findFlightsOneWayFullParamOrdered(String locationDepart, String locationArrival, String dateDepart, Integer stops, Integer minPrice, Integer maxPrice, String orderBy, String order);
+	
+	
+	ArrayList<Flight> findFlightsRoundTripByLocationAndDate(String locationDepart, String locationArrival, String dateDepart, String dateReturn);
+	
 	
 
 }
