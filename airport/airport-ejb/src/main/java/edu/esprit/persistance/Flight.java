@@ -3,8 +3,10 @@ package edu.esprit.persistance;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Entity implementation class for Entity: Flight
@@ -32,6 +34,7 @@ public class Flight implements Serializable {
 	private Plane plane;
 
 	private AirlineCompany airlineCompany;
+	private List <Employee> employees;
 	private static final long serialVersionUID = 1L;
 
 	public Flight() {
@@ -242,6 +245,16 @@ public class Flight implements Serializable {
 
 	public void setArrivalLocation(Location arrivalLocation) {
 		this.arrivalLocation = arrivalLocation;
+	}
+	
+	@OneToMany( mappedBy = "flightId",fetch = FetchType.EAGER)
+	@XmlTransient
+	public List <Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List <Employee> employees) {
+		this.employees = employees;
 	}
 	
 	

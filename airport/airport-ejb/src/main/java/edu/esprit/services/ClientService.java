@@ -25,7 +25,8 @@ public class ClientService implements ClientServiceLocal {
     
     public void add(Client client) {
 		
-		em.persist(em.merge(client));
+		em.persist(client);
+    	
 		
 	}
     

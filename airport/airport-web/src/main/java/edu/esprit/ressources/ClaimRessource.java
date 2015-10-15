@@ -12,6 +12,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 import edu.esprit.persistance.Claim;
 import edu.esprit.services.ClaimServiceLocal;
@@ -51,10 +52,11 @@ public class ClaimRessource {
 	@DELETE
 	@Path("/delete")
 	@Consumes("application/json")
-	public void delete(Claim claim)
+//	public void delete(@QueryParam("id") Integer id, Claim claim)
+	public void delete( Claim claim)
 	{
-
 		 myejb.delete(claim);
+//		 myejb.delete(claim,id);
 
 	}
 	@GET

@@ -25,7 +25,7 @@ public class FeedbackService implements FeedbackServiceLocal {
     
  public void add(Feedback feedback) {
 		
-		em.persist(em.merge(feedback));
+		em.persist(feedback);
 		
 	}
     

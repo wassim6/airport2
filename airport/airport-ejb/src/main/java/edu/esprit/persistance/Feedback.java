@@ -24,6 +24,15 @@ public class Feedback implements Serializable {
 	public Feedback() {
 		
 	}   
+	
+	
+	public Feedback(String feedback, Client clientId) {
+		super();
+		this.feedback = feedback;
+		this.clientId = clientId;
+	}
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdFeedback() {

@@ -23,7 +23,7 @@ public class PaymentService implements PaymentServiceLocal {
     
 
     	public void add(Payment payment) {
-    		em.persist(em.merge(payment));
+    		em.persist(payment);
     	}
 
     	public void delete(Payment payment) {

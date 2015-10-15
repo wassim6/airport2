@@ -22,9 +22,19 @@ public class Claim implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public Claim() {
-		super();
+		
 	} 
 	
+	
+	
+	public Claim(String claim, Client clientClaim) {
+		super();
+		Claim = claim;
+		this.clientClaim = clientClaim;
+	}
+
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdClaim() {
@@ -49,6 +59,12 @@ public class Claim implements Serializable {
 	public void setClientClaim(Client clientId) {
 		this.clientClaim = clientId;
 	}
+
+	@Override
+	public String toString() {
+		return "Claim [idClaim=" + idClaim + ", Claim=" + Claim + "]";
+	}
    
    
+	
 }

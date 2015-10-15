@@ -30,6 +30,19 @@ public class Payment implements Serializable {
 	public Payment() {
 
 	}   
+	
+	
+	public Payment(Date paymentDate, Integer paymentAmount,
+			String paymentStatus, Reservation reservation, Client client) {
+		super();
+		this.paymentDate = paymentDate;
+		this.paymentAmount = paymentAmount;
+		this.paymentStatus = paymentStatus;
+		this.reservation = reservation;
+		this.client = client;
+	}
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getIdPayment() {

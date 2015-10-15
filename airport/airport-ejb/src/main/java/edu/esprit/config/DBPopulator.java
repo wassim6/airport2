@@ -12,16 +12,22 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
 import edu.esprit.persistance.AirlineCompany;
+import edu.esprit.persistance.Claim;
 import edu.esprit.persistance.Client;
-import edu.esprit.persistance.ClientInfo;
+import edu.esprit.persistance.Feedback;
 import edu.esprit.persistance.Flight;
 import edu.esprit.persistance.Location;
+import edu.esprit.persistance.Payment;
 import edu.esprit.persistance.Plane;
+import edu.esprit.persistance.Reservation;
 import edu.esprit.services.AirlineCompanyServiceLocal;
-import edu.esprit.services.ClientInfoServiceLocal;
+import edu.esprit.services.ClaimServiceLocal;
 import edu.esprit.services.ClientServiceLocal;
+import edu.esprit.services.FeedbackServiceLocal;
 import edu.esprit.services.FlightServiceLocal;
+import edu.esprit.services.PaymentServiceLocal;
 import edu.esprit.services.PlaneServiceLocal;
+import edu.esprit.services.ReservationServiceLocal;
 
 @Singleton
 @Startup
@@ -33,14 +39,30 @@ public class DBPopulator {
 	@EJB
 	private AirlineCompanyServiceLocal airlineCompanyServiceLocal;
 
-	@EJB
-	private ClientInfoServiceLocal clientInfoServiceLocal;
+	//@EJB
+	//private LocationSer airlineCompanyServiceLocal;
+	
+	
 
 	@EJB
 	private ClientServiceLocal clientServiceLocal;
 
 	@EJB
 	private FlightServiceLocal flightServiceLocal;
+	
+	@EJB
+	private ClaimServiceLocal claimServiceLocal;
+	
+	@EJB
+	private FeedbackServiceLocal feedbackServiceLocal;
+	
+	@EJB
+	private PaymentServiceLocal paymentServiceLocal;
+	
+	@EJB
+	private ReservationServiceLocal reservationServiceLocal;
+	
+	
 	
 	public DBPopulator() {
 		
@@ -59,19 +81,36 @@ public class DBPopulator {
 		planeServiceLocal.add(plane3);
 
 		Client client1 = new Client("rim.aifa@esprit.tn", "aifa", "rim",
-				"rima", 111111);
+				"rima", 111111,2,"	tunisia",3);
 		Client client2 = new Client("rima.aifaa@esprit.tn", "aifaa", "rimaa",
-				"rima25", 222222);
+				"rima25", 222222,2,"tunisia",3);
+		
+		
+		
+		
 
 		clientServiceLocal.add(client1);
 		clientServiceLocal.add(client2);
+		
+		Claim claim1 = new Claim("kjffvf",client1);
+    	Claim claim2= new Claim ("jdvbkfjv",client2);
+    	
+    	
+    	claimServiceLocal.add(claim1);
+    	claimServiceLocal.add(claim2);
+    	
+    	
+    	
+    	Feedback feedback1 = new Feedback("hhhhhh",client1);
+    	Feedback feedback2 = new Feedback("hdjdvh",client1);
+    	
+    	
+    	feedbackServiceLocal.add(feedback1);
+    	feedbackServiceLocal.add(feedback2);
 
-		/*ClientInfo clientInfo1 = new ClientInfo(2, "tunisie", 3, client1);
-		ClientInfo clientInfo2 = new ClientInfo(2, "france", 3, client2);
-
-		clientInfoServiceLocal.add(clientInfo1);
-		clientInfoServiceLocal.add(clientInfo2);
-*/
+		
+    	
+    	
 		
 		Location location1 = new Location("ENH", "Tunisia",
 				"Hammamet - Enfida", 4030,
@@ -81,6 +120,7 @@ public class DBPopulator {
 		Location location3 = new Location("ORY", "France", "Paris", 94396,
 				"Paris Orly Airport", 1);
 
+		
 
 		AirlineCompany airlineCompany1 = new AirlineCompany("Tunisair",
 				"tunisair_logo.png");
@@ -111,12 +151,12 @@ public class DBPopulator {
 		flightServiceLocal.add(flight2);
 		
 		
-		List<Flight> flights =null;
-		flights=flightServiceLocal.findFlightsOneWayByLocationAndDate(location1, location2, date1);
+//		List<Flight> flights =null;
+//		flights=flightServiceLocal.findFlightsOneWayByLocationAndDate(location1, location2, date1);
 		
-		for(Flight f : flights){
-			System.out.println(f.toString());
-		}
+//		for(Flight f : flights){
+//			System.out.println(f.toString());
+//		}
 //		System.out.println(flights.toString());
 
 		//System.out.println(flightServiceLocal.findFlightByNumber("TUKH789"));
@@ -134,6 +174,11 @@ public class DBPopulator {
 		flight2.setFlightNumber("XXXX");
 		flightServiceLocal.update(flight2);
 */		
+		
+		
+		
+		
+
 
 
 	}

@@ -13,6 +13,7 @@ public interface ClaimServiceLocal {
     public void add(Claim claim);
     public Claim find(Integer id);
 	public void update(Claim claim);
+//	public void delete(Claim claim,Integer id);
 	public void delete(Claim claim);
 	public List<Claim> findAll(Integer id);
 }

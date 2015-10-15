@@ -27,7 +27,7 @@ public class ClaimService implements ClaimServiceLocal {
     
  public void add(Claim claim) {
 		
-		em.persist(em.merge(claim));
+		em.persist(claim);
 		
 	}
     
@@ -42,8 +42,21 @@ public class ClaimService implements ClaimServiceLocal {
 		
 	}
 
-	public void delete(Claim claim) {
+/*	public void delete(Claim claim,Integer id) {
 		
+//		System.out.println(claim);
+		claim=em.find(Claim.class, claim.getIdClaim());
+		System.out.println(claim.toString());
+		if(claim.getClientClaim().getIdClient()== id)
+		{
+			System.out.println("ok !!");
+			em.remove(em.merge(claim));
+		}
+		System.out.println("pas ok :(");
+			
+	}*/
+	
+	public void delete(Claim claim) {		
 		em.remove(em.merge(claim));
 	}
 	

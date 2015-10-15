@@ -26,6 +26,10 @@ public class Client implements Serializable {
 	private String password;
 	private Integer phone;
 	private Date createTime;
+	private Integer milesParcoured;
+	private String countriesVisited;
+	private Integer numberTrips;
+	private List<Image> images;
 	private List<Payment> payments;
 	private List<Feedback> feedbacks;
 	private List<Claim> claims;
@@ -38,24 +42,18 @@ public class Client implements Serializable {
 
 
 
-	public Client(String email, String firstName, String lastName,
-			String password, Integer phone) {
-		this.email = email;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.password = password;
-		this.phone = phone;
-		
-		Date dateNow = new Date();
-		this.createTime = dateNow;
-	}
 	
+
+
+
 	
+
 
 
 
 	public Client(Integer idClient, String email, String firstName,
-			String lastName, String password, Integer phone, Date createTime) {
+			String lastName, String password, Integer phone, Date createTime,
+			Integer milesParcoured, String countriesVisited, Integer numberTrips) {
 		super();
 		this.idClient = idClient;
 		this.email = email;
@@ -63,8 +61,38 @@ public class Client implements Serializable {
 		this.lastName = lastName;
 		this.password = password;
 		this.phone = phone;
+		this.createTime = createTime;
+		this.milesParcoured = milesParcoured;
+		this.countriesVisited = countriesVisited;
+		this.numberTrips = numberTrips;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public Client(String email, String firstName, String lastName,
+			String password, Integer phone,
+			Integer milesParcoured, String countriesVisited, Integer numberTrips) {
+		super();
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.phone = phone;
 		Date dateNow = new Date();
 		this.createTime = dateNow;
+		this.milesParcoured = milesParcoured;
+		this.countriesVisited = countriesVisited;
+		this.numberTrips = numberTrips;
 	}
 
 
@@ -168,9 +196,8 @@ public class Client implements Serializable {
 	}
 
 
-
-	@OneToMany( mappedBy = "clientClaim",fetch = FetchType.EAGER)
 	@XmlTransient
+	@OneToMany( mappedBy = "clientClaim",fetch = FetchType.EAGER)
 	public List<Claim> getClaims() {
 		return claims;
 	}
@@ -181,5 +208,75 @@ public class Client implements Serializable {
 	public void setClaims(List<Claim> claims) {
 		this.claims = claims;
 	}
+
+
+
+	@OneToMany( mappedBy = "clientImage",fetch = FetchType.EAGER)
+	@XmlTransient
+	public List<Image> getImages() {
+		return images;
+	}
+
+
+
+
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "Client [idClient=" + idClient + ", email=" + email
+				+ ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", password=" + password + ", phone=" + phone
+				+ ", createTime=" + createTime + "]";
+	}
+
+
+
+
+	public Integer getMilesParcoured() {
+		return milesParcoured;
+	}
+
+
+
+
+	public void setMilesParcoured(Integer milesParcoured) {
+		this.milesParcoured = milesParcoured;
+	}
+
+
+
+
+	public String getCountriesVisited() {
+		return countriesVisited;
+	}
+
+
+
+
+	public void setCountriesVisited(String countriesVisited) {
+		this.countriesVisited = countriesVisited;
+	}
+
+
+
+
+	public Integer getNumberTrips() {
+		return numberTrips;
+	}
+
+
+
+
+	public void setNumberTrips(Integer numberTrips) {
+		this.numberTrips = numberTrips;
+	}
    
+	
+	
 }
