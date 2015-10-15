@@ -14,7 +14,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import edu.esprit.persistance.Employee;
-import edu.esprit.persistance.Flight;
 import edu.esprit.services.EmployeeServiceLocal;
 
 
@@ -57,12 +56,26 @@ EmployeeServiceLocal myejb;
 		 myejb.delete(employee);
 
 	}
-	@GET
-	@Path("/findByJob/{Job}")
+	/*@GET
+	@Path("/findAll/{id}")
 	@Produces("application/json")
-	public List<Employee> findByJob(@PathParam("Job") String Job) {
+	public List<Flight> getAll(@PathParam("id") Integer id) {
+		
+		return myejb.findAll(id);
+		
+	}
+	
+*/
+	
+	@GET
+	@Path("/findByEmail/{email}")
+	@Produces("application/json")
+	public List<Employee> findByEmail(@PathParam("email") String email) {
 
-		return myejb.findByJob(Job);
+		return myejb.findByEmail(email);
 
 	}
+	
+	
+	
 }

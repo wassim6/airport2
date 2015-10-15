@@ -21,6 +21,7 @@ public class Deal implements Serializable {
 	private Date startDeal;
 	private Date endDeal;
 	private String description;
+	private String photo;
 	private Flight  idFlight;
 	private static final long serialVersionUID = 1L;
 
@@ -83,6 +84,18 @@ public class Deal implements Serializable {
 
 	public void setIdFlight(Flight idFlight) {
 		this.idFlight = idFlight;
+	}
+
+
+
+	public String getPhoto() {
+		return photo;
+	}
+
+
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	
 	

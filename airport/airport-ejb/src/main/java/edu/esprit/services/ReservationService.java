@@ -10,6 +10,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import edu.esprit.persistance.Reservation;
@@ -21,6 +22,7 @@ public class ReservationService implements ReservationServiceLocal {
 
 	@PersistenceContext
 	private EntityManager em;
+	
     public ReservationService() {
         
     	
@@ -29,42 +31,43 @@ public class ReservationService implements ReservationServiceLocal {
 	@Override
 	public void CancelReservation(Reservation reservation) {
 		
+		Reservation r =null;
+		r=em.find(Reservation.class, reservation.getIdReservation());
 		
-		
-		if(reservation.getStatus()!="canceled")
+		if(r!=null)
 		{
-			reservation.setStatus("canceled");
-			em.merge(reservation);
+			String jpql = "UPDATE Reservation r SET r.status='cancled' WHERE r.idReservation = :id";
+			Query query= em.createQuery("UPDATE Reservation r SET r.status='cancled' WHERE r.idReservation=:id");
+			query.setParameter("id", reservation.getIdReservation());
+			query.executeUpdate();
 		}
 		
-		}
+					
+		
+	}
 
 	@Override
 	public void Reserver(Reservation reservation) {
 
 		em.persist(reservation);
 		
-	}
+	}	
 
-	@Override
+
 	public Reservation find(Integer id) {
 		//modifier id par autre chose qui joue le même rôle
-		return em.find(Reservation.class, id);
-		
+		return em.find(Reservation.class, id);	
 	}
 
 	@Override
 	public void update(Reservation reservation) {
-
 		em.merge(reservation);
-		
 	}
 
 	
 
 	@Override
 	public List<Reservation> ConsultAll(Integer id) {
-		
 		List<Reservation> reservations = null;
 		String jpql = "select r from Reservation r where r.passanger.idPassanger=:x";
 		TypedQuery<Reservation> query = em.createQuery(jpql,Reservation.class);
@@ -74,14 +77,7 @@ public class ReservationService implements ReservationServiceLocal {
 		
 	}
 
-	/*@Override
-	public List<Reservation> FindByMonth(String month) {
-		List<Reservation> reservations = null;
-		String jpql = "select r from Reservation r where FUNC('MONTH', r.dateReservation)=:month ";
-		TypedQuery<Reservation> query = em.createQuery(jpql,Reservation.class);
-		reservations = query.getResultList();
-		return reservations;
-	}*/
+	
 
 	@Override
 	public List<Reservation> FindByYear(String year) {

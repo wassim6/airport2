@@ -26,6 +26,7 @@ import edu.esprit.services.ClaimServiceLocal;
 import edu.esprit.services.ClientServiceLocal;
 import edu.esprit.services.FeedbackServiceLocal;
 import edu.esprit.services.FlightServiceLocal;
+import edu.esprit.services.PassangerServiceLocal;
 import edu.esprit.services.PaymentServiceLocal;
 import edu.esprit.services.PlaneServiceLocal;
 import edu.esprit.services.ReservationService;
@@ -41,6 +42,10 @@ public class DBPopulator {
 	@EJB
 	private AirlineCompanyServiceLocal airlineCompanyServiceLocal;
 
+	@EJB
+	private PassangerServiceLocal passangerServiceLocal;
+	
+	
 	//@EJB
 	//private LocationSer airlineCompanyServiceLocal;
 	
@@ -71,8 +76,7 @@ public class DBPopulator {
 	}
 
 	@PostConstruct
-	public void createSomeEntities() {
-		
+	public void createSomeEntities() {		
 		
 		Plane plane1 = new Plane("Boeing 747", 955, 480, 20, 5, 0, 0);
 		Plane plane2 = new Plane("Airbus A380", 945, 652, 30, 10, 0, 1);
@@ -178,6 +182,25 @@ public class DBPopulator {
 		Reservation reservation = new Reservation(dateNow,"confirmé","A",flight1);
 		
 		reservationServiceLocal.Reserver(reservation);
+		
+		
+		
+		Payment payment = new Payment(100, "succes", reservation, client1);
+		
+		paymentServiceLocal.add(payment);
+		
+		
+		try {
+			date1=sdf.parse("20/03/1993 0:00");
+		}catch(ParseException e) {
+			e.printStackTrace();
+		}
+		Passanger passanger1= new Passanger("wass", "bou6", "12578654", date1, reservation);
+		Passanger passanger2= new Passanger("rima", "aifa", "4875624OP", date1, reservation);
+		passangerServiceLocal.addPassanger(passanger1);
+		passangerServiceLocal.addPassanger(passanger2);
+
+		
 		
 //		List<Flight> flights =null;
 //		flights=flightServiceLocal.findFlightsOneWayByLocationAndDate(location1, location2, date1);

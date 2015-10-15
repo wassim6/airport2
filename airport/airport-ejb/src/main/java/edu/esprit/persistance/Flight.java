@@ -34,7 +34,7 @@ public class Flight implements Serializable {
 	private Plane plane;
 
 	private AirlineCompany airlineCompany;
-	private List <Employee> employees;
+	private  Employee idEmployee;
 	private static final long serialVersionUID = 1L;
 
 	public Flight() {
@@ -247,14 +247,13 @@ public class Flight implements Serializable {
 		this.arrivalLocation = arrivalLocation;
 	}
 	
-	@OneToMany( mappedBy = "flightId",fetch = FetchType.EAGER)
-	@XmlTransient
-	public List <Employee> getEmployees() {
-		return employees;
+	@ManyToOne
+	@JoinColumn( name= "idEmployee_fk")
+	public Employee getidEmployee() {
+		return idEmployee;
 	}
-
-	public void setEmployees(List <Employee> employees) {
-		this.employees = employees;
+	public void setidEmployee(Employee idEmployee) {
+		this.idEmployee = idEmployee;
 	}
 	
 	
