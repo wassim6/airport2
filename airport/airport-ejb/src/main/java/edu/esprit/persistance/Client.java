@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -17,6 +18,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity()
 @Table(name="t_client")
 
+@XmlRootElement(name = "client")
 public class Client implements Serializable {
 	
 	private Integer idClient;
@@ -51,20 +53,14 @@ public class Client implements Serializable {
 
 
 
-	public Client(Integer idClient, String email, String firstName,
-			String lastName, String password, Integer phone, Date createTime,
-			Integer milesParcoured, String countriesVisited, Integer numberTrips) {
+	public Client(String email, String firstName, String lastName,
+			String password) {
 		super();
-		this.idClient = idClient;
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
-		this.phone = phone;
-		this.createTime = createTime;
-		this.milesParcoured = milesParcoured;
-		this.countriesVisited = countriesVisited;
-		this.numberTrips = numberTrips;
+		this.createTime = new Date();
 	}
 
 
@@ -78,43 +74,35 @@ public class Client implements Serializable {
 
 
 
+
+	
+	
 
 	public Client(String email, String firstName, String lastName,
-			String password, Integer phone,
-			Integer milesParcoured, String countriesVisited, Integer numberTrips) {
+			Integer milesParcoured,
+			Integer numberTrips,String password, Integer phone) {
 		super();
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
 		this.phone = phone;
-		Date dateNow = new Date();
-		this.createTime = dateNow;
 		this.milesParcoured = milesParcoured;
-		this.countriesVisited = countriesVisited;
 		this.numberTrips = numberTrips;
+		
 	}
 
 
 
 
-	public Client(Integer idClient, String email, String firstName,
-			String lastName, String password, Integer phone) {
-		this.idClient = idClient;
-		this.email = email;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.password = password;
-		this.phone = phone;
-		
-		Date dateNow = new Date();
-		this.createTime = dateNow;
-	}
 
-		
-	
-	
-	
+
+
+
+
+
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -124,7 +112,8 @@ public class Client implements Serializable {
 
 	public void setIdClient(Integer IdClient) {
 		this.idClient = IdClient;
-	}   
+	}
+	@Column(unique=true)
 	public String getEmail() {
 		return this.email;
 	}

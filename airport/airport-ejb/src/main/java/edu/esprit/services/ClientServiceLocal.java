@@ -8,13 +8,13 @@ import edu.esprit.persistance.Client;
 public interface ClientServiceLocal {
 	
 	
-	public void add(Client client);
+	public boolean add(Client client);
     
     public Client find(Integer id);
 
-	public void update(Client client);
+	public boolean update(Client client);
 
-	public void delete(Client client);
+	public boolean delete(Integer id);
 	
 	public Client existC(String email,String password);
 

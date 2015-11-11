@@ -3,6 +3,7 @@ package edu.esprit.persistance;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -19,6 +20,7 @@ public class Feedback implements Serializable {
 	private Integer idFeedback;
 	private String feedback;
 	private Client clientId;
+	private Date createTime;
 	private Integer rate;
 	private AirlineCompany airline;
 	private static final long serialVersionUID = 1L;
@@ -32,6 +34,17 @@ public class Feedback implements Serializable {
 		super();
 		this.feedback = feedback;
 		this.clientId = clientId;
+	}
+	
+	
+
+
+	public Feedback(String feedback, Client clientId, AirlineCompany airline) {
+		super();
+		this.feedback = feedback;
+		this.clientId = clientId;
+		this.airline = airline;
+		this.createTime = new Date();
 	}
 
 
@@ -85,6 +98,16 @@ public class Feedback implements Serializable {
 			this.rate= 0;
 		}*/
 		this.rate = rate;
+	}
+
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
    
 }

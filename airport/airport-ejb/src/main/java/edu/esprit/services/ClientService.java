@@ -29,9 +29,13 @@ public class ClientService implements ClientServiceLocal{
     }
 
     
-    public void add(Client client) {
+    public boolean add(Client client) {
 		
+    	
+    	
 		em.persist(client);
+		return true;
+    	
     	
 		
 	}
@@ -41,15 +45,17 @@ public class ClientService implements ClientServiceLocal{
 		return em.find(Client.class, id);
 	}
 
-	public void update(Client client) {
+	public boolean update(Client client) {
 		
 		em.merge(client);
+		return true;
 		
 	}
 
-	public void delete(Client client) {
+	public boolean delete(Integer id) {
 		
-		em.remove(em.merge(client));
+		em.remove(em.merge(id));
+		return true;
 	}
 	
 	public Client existC(String email,String password) {

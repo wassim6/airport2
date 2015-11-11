@@ -22,8 +22,11 @@ public class AirlineCompany implements Serializable {
 	private Integer idAirlineCompany;
 	private String name;
 	private String logo;
-	private Double rate;
-	private Integer totalRate;
+	private String address;
+	private String siteWeb;
+	private String continent;
+	private String contry;
+	private String phone;
 	private List<Feedback> feedbacks;
 	private List<Flight> flights;
 	private static final long serialVersionUID = 1L;
@@ -37,11 +40,23 @@ public class AirlineCompany implements Serializable {
 
 
 
+	
+
+
+
+
+	
+
+
+
+
+	
+
 	@Override
 	public String toString() {
-		return "AirlineCompany [idAirlineCompany=" + idAirlineCompany
-				+ ", name=" + name + ", logo=" + logo + ", rate=" + rate
-				+ ", totalRate=" + totalRate + "]";
+		return "AirlineCompany [name=" + name + ", logo=" + logo + ", address="
+				+ address + ", siteWeb=" + siteWeb + ", continent=" + continent
+				+ ", contry=" + contry + ", phone=" + phone + "]";
 	}
 
 
@@ -50,22 +65,46 @@ public class AirlineCompany implements Serializable {
 
 
 
-	public AirlineCompany(Integer idAirlineCompany, String name, String logo) {
-		this.idAirlineCompany = idAirlineCompany;
+
+
+
+
+
+
+
+
+
+
+
+
+	public AirlineCompany(String name, String logo, String address,
+			String siteWeb, String continent, String contry, String phone) {
+		super();
 		this.name = name;
 		this.logo = logo;
-		this.rate=0.0;
-		this.totalRate=0;
+		this.address = address;
+		this.siteWeb = siteWeb;
+		this.continent = continent;
+		this.contry = contry;
+		this.phone = phone;
 	}
 
 
 
-	public AirlineCompany(String name, String logo) {
-		this.name = name;
-		this.logo = logo;
-		this.rate=0.0;
-		this.totalRate=0;
-	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	@Id
@@ -102,27 +141,7 @@ public class AirlineCompany implements Serializable {
 	}
 
 
-	public Double getRate() {
-		return rate;
-	}
-
-
-
-	public void setRate(Double rate) {
-		this.rate = rate;
-	}
-
-
-
-	public Integer getTotalRate() {
-		return totalRate;
-	}
-
-
-
-	public void setTotalRate(Integer totalRate) {
-		this.totalRate = totalRate;
-	}
+	
 	
 	@OneToMany( mappedBy = "airline" )
 	@XmlTransient
@@ -134,6 +153,106 @@ public class AirlineCompany implements Serializable {
 
 	public void setFeedbacks(List<Feedback> feedbacks) {
 		this.feedbacks = feedbacks;
+	}
+
+
+
+
+
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+
+
+
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+
+
+
+
+
+
+	public String getSiteWeb() {
+		return siteWeb;
+	}
+
+
+
+
+
+
+
+	public void setSiteWeb(String siteWeb) {
+		this.siteWeb = siteWeb;
+	}
+
+
+
+
+
+
+
+	public String getContinent() {
+		return continent;
+	}
+
+
+
+
+
+
+
+	public void setContinent(String continent) {
+		this.continent = continent;
+	}
+
+
+
+
+
+
+
+	public String getContry() {
+		return contry;
+	}
+
+
+
+
+
+
+
+	public void setContry(String contry) {
+		this.contry = contry;
+	}
+
+
+
+
+
+
+
+	public String getPhone() {
+		return phone;
+	}
+
+
+
+
+
+
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
    
 }

@@ -11,7 +11,10 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
+import edu.esprit.persistance.Client;
 import edu.esprit.persistance.Feedback;
 import edu.esprit.services.FeedbackServiceLocal;
 
@@ -59,9 +62,13 @@ public class FeedbackRessource {
 	@GET
 	@Path("/findAll/{id}")
 	@Produces("application/json")
-	public List<Feedback> getAll(@PathParam("id") Integer id) {
+	public Response getAll(@PathParam("id") Integer id) {
 		
-		return myejb.findAll(id);
+		List<Feedback> feedbacks = myejb.findAll(id);
+		if (feedbacks==null)
+			return Response.status(Status.NOT_FOUND).entity("no feedbacks").build();
+		else
+			return Response.ok(feedbacks).build();
 		
 	}
 }

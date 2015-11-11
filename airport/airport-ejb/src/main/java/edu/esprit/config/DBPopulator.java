@@ -87,11 +87,23 @@ public class DBPopulator {
 		planeServiceLocal.add(plane3);
 
 		Client client1 = new Client("rim.aifa@esprit.tn", "aifa", "rim",
-				"rima", 111111,2,"	tunisia",3);
+				"rima");
 		Client client2 = new Client("rima.aifaa@esprit.tn", "aifaa", "rimaa",
-				"rima25", 222222,2,"tunisia",3);
+				"rima25");
 		
+		Location location1 = new Location("ENH", "Tunisia",
+				"Hammamet - Enfida", 4030,
+				"Hammamet Enfidha International Airport", 1);
+		Location location2 = new Location("TUN", "Tunisia", "Tunis", 1080,
+				"Tunis-Carthage International Airport", 1);
+		Location location3 = new Location("ORY", "France", "Paris", 94396,
+				"Paris Orly Airport", 1);
+
 		
+
+		AirlineCompany airlineCompany1 = new AirlineCompany("Tunisair",
+				"tunisair.jpg","TUNISAIR- FRET 2035 AEROGARE FRET TUNIS CARTHAGE","http://www.tunisair.com/","Africa","Tunisia","(+216)70101310");
+		AirlineCompany airlineCompany2 = new AirlineCompany("Nouvelair","nouvelair.jpg","Zone Touristique Dkhila 5065 Monastir - Tunisie","http://www.nouvelair.com/","Africa","Tunisia","(+216)70020900");
 		
 		
 
@@ -108,8 +120,8 @@ public class DBPopulator {
     	
     	
     	
-    	Feedback feedback1 = new Feedback("hhhhhh",client1);
-    	Feedback feedback2 = new Feedback("hdjdvh",client1);
+    	Feedback feedback1 = new Feedback("hhhhhh",client1,airlineCompany1);
+    	Feedback feedback2 = new Feedback("hdjdvh",client1,airlineCompany1);
     	
     	
     	feedbackServiceLocal.add(feedback1);
@@ -122,20 +134,7 @@ public class DBPopulator {
     			
     			
 		
-		Location location1 = new Location("ENH", "Tunisia",
-				"Hammamet - Enfida", 4030,
-				"Hammamet Enfidha International Airport", 1);
-		Location location2 = new Location("TUN", "Tunisia", "Tunis", 1080,
-				"Tunis-Carthage International Airport", 1);
-		Location location3 = new Location("ORY", "France", "Paris", 94396,
-				"Paris Orly Airport", 1);
-
 		
-
-		AirlineCompany airlineCompany1 = new AirlineCompany("Tunisair",
-				"tunisair_logo.png");
-		AirlineCompany airlineCompany2 = new AirlineCompany("Nouvelair",
-				"nouvelair_logo.png");
 
 		airlineCompanyServiceLocal.add(airlineCompany1);
 		airlineCompanyServiceLocal.add(airlineCompany2);
